@@ -1,0 +1,373 @@
+{
+  "scope": "Recorded responses from archived NetBuster 1.31 and NetBus 1.70 applications, including password-protected NetBus, executed in an isolated disposable guest. Six complete direct-query TCP streams are retained without rewriting packet bytes.",
+  "measured_on": "2026-10-24",
+  "products": {
+    "netbus": {
+      "version": "1.70",
+      "source": "https://archive.org/download/nt.-tools/NT.Tools.zip/NT.Tools%2FNetBus170.zip",
+      "archive_size_bytes": 548808,
+      "archive_sha256": "8b0563e23f4d16dec5690ab5d13db89470b8982e25ec8fd12cba22eccb7916f4",
+      "executable": "Patch.exe",
+      "executable_size_bytes": 494592,
+      "executable_sha256": "73a62d6593e3c70b60455299b793bb18d31eddd5f15d04442932c1d3ccb7eb0c",
+      "wine_overrides": "winealsa.drv,winepulse.drv,midimap,mscoree,mshtml=",
+      "settings": "Separate Wine prefix; audio and MIDI drivers disabled. Default configuration for first six controls and benchmark; password protection enabled with /pass:review-control for final six controls and the protected smoke check."
+    },
+    "netbuster": {
+      "version": "1.31",
+      "source": "https://archive.org/download/nt.-tools/NT.Tools.zip/NT.Tools%2Fnetbuster1_31.zip",
+      "archive_sha256": "fc2cf72e12114ce56d5e829d46963d4791284ce5d48c08068e3cf783c1102098",
+      "executable_sha256": "6331541f77e30271bf4347d5ecd8dc220551c7dfc500b297cf412f74628bbb3d",
+      "wine_overrides": "mscoree,mshtml=",
+      "settings": "Recorded default configuration for all six direct combined-query controls and the NetBuster benchmark. The Wine prefix was reused from the prior laboratory session; response fields matched the default values."
+    }
+  },
+  "archive_identity_scope": "Archive URLs and SHA-256 identify the obtained bytes; they are not author-authenticated provenance. No application executables or original media are included.",
+  "runtime": {
+    "nmap": "7.97",
+    "wine": "10.7",
+    "python": "3.12.15",
+    "os": "Alpine Linux 3.22.7",
+    "kernel": "6.12.114-0-virt",
+    "architecture": "x86_64",
+    "capture_interface": "lo",
+    "target": "127.0.0.1:12345",
+    "source_environment": {
+      "path": "live/environment.txt",
+      "sha256": "ac1af84be245fffdc3ad74ed3c9094ba1e758c1ee043cb757b4b3d2c50f9d105",
+      "size_bytes": 1250
+    }
+  },
+  "query": {
+    "coalesced_hex": "6e627665720d476574496e666f0d",
+    "split_lines_hex": [
+      "6e627665720d",
+      "476574496e666f0d"
+    ],
+    "requested_interline_delay_seconds": 0.05,
+    "operation": "Version and information queries; no password login is sent by the final candidate or these direct controls.",
+    "fixture_scope": "Only the first eight response bytes are required by the detector. The PCAP retains all response bytes actually recorded."
+  },
+  "capture": {
+    "file": "recorded-controls.pcap",
+    "sha256": "63db92d594cd10bf74473e238311573463b8c5d7827fe53c2867629988eedaf2",
+    "size_bytes": 5948,
+    "frame_count": 65,
+    "complete_tcp_streams": 6,
+    "link_type": "Ethernet (DLT_EN10MB)",
+    "source_capture": {
+      "path": "live/measurements.pcap",
+      "sha256": "954cb1c6d233e31dea0e00c31d8ee9921a61d89a7d85e49d207ddde60066483f",
+      "size_bytes": 96442,
+      "frame_count": 1122,
+      "snapshot_length": 262144,
+      "kernel_dropped_packets": 0
+    },
+    "extraction": "Original 24-byte classic-PCAP header and exact original per-packet record bytes for the selected streams, in original capture order. No payload, address, timestamp, or packet-length rewriting.",
+    "stream_numbering": "original_tcp_stream uses tshark on the complete source capture; reduced_tcp_stream uses tshark on recorded-controls.pcap. Frame numbers are one-based."
+  },
+  "controls": [
+    {
+      "product": "netbus",
+      "mode": "coalesced",
+      "repeat": 1,
+      "original_tcp_stream": 0,
+      "original_frame_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "client_port": 41228,
+      "banner_hex": "4e657442757320312e3730200d",
+      "request_hex": "6e627665720d476574496e666f0d",
+      "response_first_eight_hex": "496e666f3b50726f",
+      "full_recorded_response_hex": "496e666f3b50726f6772616d20506174683a205a3a5c686f6d655c6c61625c6e65746275735c50617463682e6578657c526573746172742070657273697374656e743a205965737c4c6f67696e2049443a206c61627c436c69656e747320636f6e6e656374656420746f207468697320686f73743a20310d",
+      "request_payload_frame_numbers": [
+        6
+      ],
+      "observed_interline_seconds": null,
+      "probe_elapsed_seconds": 0.008896,
+      "fixture_path": "tests/fixtures/real/netbus/combined-170.json",
+      "fixture_sha256": "e326455e560615bc8845e879b036c88f9691799746eed662754b34542ece458d",
+      "direct_probe_json": "live/netbus-combined.json",
+      "direct_probe_json_sha256": "d30eb8d4eb50f2bdf776276a68180a3b91752d5a4e7c42fe616e8e98faa903fc",
+      "reduced_frame_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "reduced_tcp_stream": 0
+    },
+    {
+      "product": "netbus",
+      "mode": "split_lines",
+      "repeat": 1,
+      "original_tcp_stream": 3,
+      "original_frame_numbers": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "client_port": 41264,
+      "banner_hex": "4e657442757320312e3730200d",
+      "request_hex": "6e627665720d476574496e666f0d",
+      "response_first_eight_hex": "496e666f3b50726f",
+      "full_recorded_response_hex": "496e666f3b50726f6772616d20506174683a205a3a5c686f6d655c6c61625c6e65746275735c50617463682e6578657c526573746172742070657273697374656e743a205965737c4c6f67696e2049443a206c61627c436c69656e747320636f6e6e656374656420746f207468697320686f73743a20340d",
+      "request_payload_frame_numbers": [
+        33,
+        35
+      ],
+      "observed_interline_seconds": 0.051605,
+      "probe_elapsed_seconds": 0.056758,
+      "fixture_path": "tests/fixtures/real/netbus/combined-170.json",
+      "fixture_sha256": "e326455e560615bc8845e879b036c88f9691799746eed662754b34542ece458d",
+      "direct_probe_json": "live/netbus-combined.json",
+      "direct_probe_json_sha256": "d30eb8d4eb50f2bdf776276a68180a3b91752d5a4e7c42fe616e8e98faa903fc",
+      "reduced_frame_numbers": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "reduced_tcp_stream": 1
+    },
+    {
+      "product": "netbuster",
+      "mode": "coalesced",
+      "repeat": 1,
+      "original_tcp_stream": 6,
+      "original_frame_numbers": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        73,
+        74
+      ],
+      "client_port": 37688,
+      "banner_hex": "4e657442757320312e36300d",
+      "request_hex": "6e627665720d476574496e666f0d",
+      "response_first_eight_hex": "312e33312d312d31",
+      "full_recorded_response_hex": "312e33312d312d31",
+      "request_payload_frame_numbers": [
+        66
+      ],
+      "observed_interline_seconds": null,
+      "probe_elapsed_seconds": 0.129931,
+      "fixture_path": "tests/fixtures/real/netbuster/combined-default.json",
+      "fixture_sha256": "b143b62b3b0e68a4702b789f02c19b044b89d311f3bf9664ec5627333aef83db",
+      "direct_probe_json": "live/netbuster-combined.json",
+      "direct_probe_json_sha256": "8ae55d43941c4b6f75ab458e4be5e6341bda322be718a6dd2d082f2d97248a30",
+      "reduced_frame_numbers": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "reduced_tcp_stream": 2
+    },
+    {
+      "product": "netbuster",
+      "mode": "split_lines",
+      "repeat": 1,
+      "original_tcp_stream": 9,
+      "original_frame_numbers": [
+        92,
+        93,
+        94,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        109,
+        110,
+        111
+      ],
+      "client_port": 37718,
+      "banner_hex": "4e657442757320312e36300d",
+      "request_hex": "6e627665720d476574496e666f0d",
+      "response_first_eight_hex": "312e33312d312d31",
+      "full_recorded_response_hex": "312e33312d312d31",
+      "request_payload_frame_numbers": [
+        100,
+        102
+      ],
+      "observed_interline_seconds": 0.051745,
+      "probe_elapsed_seconds": 0.170572,
+      "fixture_path": "tests/fixtures/real/netbuster/combined-default.json",
+      "fixture_sha256": "b143b62b3b0e68a4702b789f02c19b044b89d311f3bf9664ec5627333aef83db",
+      "direct_probe_json": "live/netbuster-combined.json",
+      "direct_probe_json_sha256": "8ae55d43941c4b6f75ab458e4be5e6341bda322be718a6dd2d082f2d97248a30",
+      "reduced_frame_numbers": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "reduced_tcp_stream": 3
+    },
+    {
+      "product": "netbus-protected",
+      "mode": "coalesced",
+      "repeat": 1,
+      "original_tcp_stream": 120,
+      "original_frame_numbers": [
+        971,
+        972,
+        973,
+        974,
+        975,
+        976,
+        977,
+        978,
+        979
+      ],
+      "client_port": 34804,
+      "banner_hex": "4e657442757320312e373020780d",
+      "request_hex": "6e627665720d476574496e666f0d",
+      "response_first_eight_hex": "496e666f3b536f72",
+      "full_recorded_response_hex": "496e666f3b536f7272792c20686f73742069732070617373776f72642070726f7465637465642e0d",
+      "request_payload_frame_numbers": [
+        976
+      ],
+      "observed_interline_seconds": null,
+      "probe_elapsed_seconds": 0.006075,
+      "fixture_path": "tests/fixtures/real/netbus/combined-170-protected.json",
+      "fixture_sha256": "f93b788407fe5cdb8d6bab4f00c8e0bc31d1c76e7e673178940d3ea89c54ac42",
+      "direct_probe_json": "live/netbus-protected-combined.json",
+      "direct_probe_json_sha256": "9de7657f34efea9d672bd323c0577e40a0e5633dddea0e6ea341c2dd50be3c37",
+      "reduced_frame_numbers": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "reduced_tcp_stream": 4
+    },
+    {
+      "product": "netbus-protected",
+      "mode": "split_lines",
+      "repeat": 1,
+      "original_tcp_stream": 123,
+      "original_frame_numbers": [
+        998,
+        999,
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008
+      ],
+      "client_port": 34840,
+      "banner_hex": "4e657442757320312e373020780d",
+      "request_hex": "6e627665720d476574496e666f0d",
+      "response_first_eight_hex": "496e666f3b536f72",
+      "full_recorded_response_hex": "496e666f3b536f7272792c20686f73742069732070617373776f72642070726f7465637465642e0d",
+      "request_payload_frame_numbers": [
+        1003,
+        1007
+      ],
+      "observed_interline_seconds": 0.05085,
+      "probe_elapsed_seconds": 0.05117,
+      "fixture_path": "tests/fixtures/real/netbus/combined-170-protected.json",
+      "fixture_sha256": "f93b788407fe5cdb8d6bab4f00c8e0bc31d1c76e7e673178940d3ea89c54ac42",
+      "direct_probe_json": "live/netbus-protected-combined.json",
+      "direct_probe_json_sha256": "9de7657f34efea9d672bd323c0577e40a0e5633dddea0e6ea341c2dd50be3c37",
+      "reduced_frame_numbers": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "reduced_tcp_stream": 5
+    }
+  ],
+  "candidate_script_sha256": "f1b740d60445ed7bac6bd3c4d6756494e9211ea531d3448f11a462a3c0062631",
+  "limitations": [
+    "Only archived NetBuster 1.31 default settings and NetBus 1.70 default/password-protected settings were exercised.",
+    "Execution under Wine is not native Windows validation.",
+    "Small isolated-loopback runs do not estimate deployment false-positive rate or latency distribution.",
+    "Default NetBus information responses expose only disposable guest paths and the lab username.",
+    "A protected NetBus response can arrive after nbver and before the second command; the recorded split control preserves that ordering."
+  ],
+  "source_provenance": {
+    "path": "../netbuster-live/provenance.json",
+    "sha256": "90b6be75603e04f214c9cacbc67728d4a7e2ba67ac830fc34f4701c17330584c",
+    "size_bytes": 7748
+  },
+  "path_bases": {
+    "capture.file": "Relative to the directory containing this provenance file (controls/ in the submission archive).",
+    "live/ paths": "Relative to evidence/netbus-latency/ at the submission archive root. Applies to source_capture.path, source_environment.path, and direct_probe_json.",
+    "tests/ paths": "Relative to the submission archive root. Applies to fixture_path.",
+    "source_provenance.path": "Relative to evidence/netbus-latency/ in the original workspace. Historical provenance identifies archive and executable bytes; the referenced historical file is not required to replay these controls."
+  }
+}

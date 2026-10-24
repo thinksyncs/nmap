@@ -1,0 +1,994 @@
+{
+  "status": "pass",
+  "measured_on": "2026-10-24",
+  "created_at_utc": "2026-10-24T05:19:52.826817+00:00",
+  "scope": "Actual archived applications in one isolated VM; these measurements do not estimate deployment latency or detection rates.",
+  "candidate_sha256": "f1b740d60445ed7bac6bd3c4d6756494e9211ea531d3448f11a462a3c0062631",
+  "patch_sha256": "50e376dba845e6df7504ca4e36448b94f48e65218f532c31f9bb6826bee8f154",
+  "method": {
+    "repeats_per_variant": 5,
+    "excluded_warmups_per_variant": 1,
+    "ordering": "Seeded initial shuffle, then rotate one position per measured round",
+    "seed": 20261024,
+    "controls": [
+      "NetBuster 1.31 default configuration",
+      "NetBus 1.70 default configuration"
+    ],
+    "metrics": {
+      "wall_seconds": "Monotonic process duration, including Nmap startup and capture setup",
+      "nmap_elapsed_seconds": "Nmap XML finished.elapsed",
+      "action_phase_seconds": "NSE phase containing the sole target action, including its socket cleanup; printed at 0.01-second resolution",
+      "nsock_connection_seconds": "Successful NSE socket CONNECT callback to socket deletion, when debug timestamps are available"
+    },
+    "outlier_policy": "Retain every measured sample; no samples removed. The final NetBuster wall-time maximum is 4.543883 seconds.",
+    "target": "127.0.0.1:12345 inside guest",
+    "nmap_arguments": "-n -Pn -sS -sV -p12345 --datadir <per-variant overlay> --script netbus-version --script-timeout 15s --script-trace -d1 -oX <output> 127.0.0.1",
+    "runtime": {
+      "qemu": "11.1.1, TCG, x86_64, 2 vCPUs, 2048MiB",
+      "guest": "Alpine 3.22.7",
+      "wine": "10.7",
+      "nmap": "7.97",
+      "lua": "5.4.7",
+      "python": "3.12.15"
+    },
+    "source_variants": {
+      "upstream": {
+        "source_path": "/home/lab/latency/upstream.nse",
+        "snapshot": "scripts/upstream.nse",
+        "sha256": "2eb48550994167c59e07feb3c43d12b188aee4947811a713155a6ba2b74d8531",
+        "expected_service": {
+          "name": "netbus",
+          "product": "NetBus trojan",
+          "version": "1.70",
+          "extrainfo": null
+        }
+      },
+      "nbver-only": {
+        "source_path": "/home/lab/latency/nbver-only.nse",
+        "snapshot": "scripts/nbver-only.nse",
+        "sha256": "67aed5f0796ce7a2554b9c1d54bb73c3cdf54d6911bc2e00b8fb182ebce8c7d1",
+        "expected_service": {
+          "name": "netbus",
+          "product": "NetBus trojan",
+          "version": "1.70",
+          "extrainfo": null
+        }
+      },
+      "final": {
+        "source_path": "/home/lab/latency/final.nse",
+        "snapshot": "scripts/final.nse",
+        "sha256": "f1b740d60445ed7bac6bd3c4d6756494e9211ea531d3448f11a462a3c0062631",
+        "expected_service": {
+          "name": "netbus",
+          "product": "NetBus trojan",
+          "version": "1.70",
+          "extrainfo": null
+        }
+      }
+    },
+    "runner_sha256": "3127b198b39384da644cec16216aff71ab4d994ab2558c4829cb4ea6b05eaa7f"
+  },
+  "products": {
+    "netbus": {
+      "raw_report": "live/netbus-benchmark/report.json",
+      "raw_report_sha256": "1dbfc937fa3e2e4fb45bf096f12592edbc3ca68b195c9e24375cfc7e3602ccbf",
+      "summaries": {
+        "nbver-only": {
+          "wall_seconds": {
+            "n": 5,
+            "median": 7.708108,
+            "min": 7.510704,
+            "max": 7.842391,
+            "values": [
+              7.510704,
+              7.708108,
+              7.718077,
+              7.674285,
+              7.842391
+            ]
+          },
+          "nmap_elapsed_seconds": {
+            "n": 5,
+            "median": 7.62,
+            "min": 7.43,
+            "max": 7.73,
+            "values": [
+              7.43,
+              7.62,
+              7.64,
+              7.59,
+              7.73
+            ]
+          },
+          "action_phase_seconds": {
+            "n": 5,
+            "median": 5.07,
+            "min": 5.06,
+            "max": 5.09,
+            "values": [
+              5.07,
+              5.06,
+              5.07,
+              5.06,
+              5.09
+            ]
+          },
+          "nsock_connection_seconds": {
+            "n": 5,
+            "median": 5.033,
+            "min": 5.026,
+            "max": 5.037,
+            "values": [
+              5.033,
+              5.026,
+              5.033,
+              5.028,
+              5.037
+            ]
+          }
+        },
+        "upstream": {
+          "wall_seconds": {
+            "n": 5,
+            "median": 2.603096,
+            "min": 2.579617,
+            "max": 3.851814,
+            "values": [
+              2.603096,
+              2.579617,
+              2.599383,
+              2.802089,
+              3.851814
+            ]
+          },
+          "nmap_elapsed_seconds": {
+            "n": 5,
+            "median": 2.52,
+            "min": 2.5,
+            "max": 3.77,
+            "values": [
+              2.52,
+              2.5,
+              2.52,
+              2.72,
+              3.77
+            ]
+          },
+          "action_phase_seconds": {
+            "n": 5,
+            "median": 0.06,
+            "min": 0.05,
+            "max": 0.07,
+            "values": [
+              0.06,
+              0.06,
+              0.05,
+              0.05,
+              0.07
+            ]
+          },
+          "nsock_connection_seconds": {
+            "n": 5,
+            "median": 0.031,
+            "min": 0.024,
+            "max": 0.034,
+            "values": [
+              0.031,
+              0.034,
+              0.028,
+              0.024,
+              0.033
+            ]
+          }
+        },
+        "final": {
+          "wall_seconds": {
+            "n": 5,
+            "median": 2.61798,
+            "min": 2.481931,
+            "max": 3.189122,
+            "values": [
+              2.819047,
+              3.189122,
+              2.61798,
+              2.481931,
+              2.563073
+            ]
+          },
+          "nmap_elapsed_seconds": {
+            "n": 5,
+            "median": 2.54,
+            "min": 2.41,
+            "max": 3.11,
+            "values": [
+              2.74,
+              3.11,
+              2.54,
+              2.41,
+              2.47
+            ]
+          },
+          "action_phase_seconds": {
+            "n": 5,
+            "median": 0.06,
+            "min": 0.05,
+            "max": 0.07,
+            "values": [
+              0.06,
+              0.07,
+              0.06,
+              0.05,
+              0.06
+            ]
+          },
+          "nsock_connection_seconds": {
+            "n": 5,
+            "median": 0.034,
+            "min": 0.025,
+            "max": 0.035,
+            "values": [
+              0.031,
+              0.034,
+              0.035,
+              0.025,
+              0.035
+            ]
+          }
+        }
+      },
+      "paired_comparisons": {
+        "nbver-only": {
+          "wall_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 4.907608
+              },
+              {
+                "round": 1,
+                "difference_seconds": 5.128491
+              },
+              {
+                "round": 2,
+                "difference_seconds": 5.118694
+              },
+              {
+                "round": 3,
+                "difference_seconds": 4.872196
+              },
+              {
+                "round": 4,
+                "difference_seconds": 3.990577
+              }
+            ],
+            "median_difference_seconds": 4.907608
+          },
+          "nmap_elapsed_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 4.91
+              },
+              {
+                "round": 1,
+                "difference_seconds": 5.12
+              },
+              {
+                "round": 2,
+                "difference_seconds": 5.12
+              },
+              {
+                "round": 3,
+                "difference_seconds": 4.87
+              },
+              {
+                "round": 4,
+                "difference_seconds": 3.96
+              }
+            ],
+            "median_difference_seconds": 4.91
+          },
+          "action_phase_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 5.01
+              },
+              {
+                "round": 1,
+                "difference_seconds": 5.0
+              },
+              {
+                "round": 2,
+                "difference_seconds": 5.02
+              },
+              {
+                "round": 3,
+                "difference_seconds": 5.01
+              },
+              {
+                "round": 4,
+                "difference_seconds": 5.02
+              }
+            ],
+            "median_difference_seconds": 5.01
+          },
+          "nsock_connection_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 5.002
+              },
+              {
+                "round": 1,
+                "difference_seconds": 4.992
+              },
+              {
+                "round": 2,
+                "difference_seconds": 5.005
+              },
+              {
+                "round": 3,
+                "difference_seconds": 5.004
+              },
+              {
+                "round": 4,
+                "difference_seconds": 5.004
+              }
+            ],
+            "median_difference_seconds": 5.004
+          }
+        },
+        "final": {
+          "wall_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 0.215951
+              },
+              {
+                "round": 1,
+                "difference_seconds": 0.609505
+              },
+              {
+                "round": 2,
+                "difference_seconds": 0.018597
+              },
+              {
+                "round": 3,
+                "difference_seconds": -0.320158
+              },
+              {
+                "round": 4,
+                "difference_seconds": -1.288741
+              }
+            ],
+            "median_difference_seconds": 0.018597
+          },
+          "nmap_elapsed_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 0.22
+              },
+              {
+                "round": 1,
+                "difference_seconds": 0.61
+              },
+              {
+                "round": 2,
+                "difference_seconds": 0.02
+              },
+              {
+                "round": 3,
+                "difference_seconds": -0.31
+              },
+              {
+                "round": 4,
+                "difference_seconds": -1.3
+              }
+            ],
+            "median_difference_seconds": 0.02
+          },
+          "action_phase_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 0.0
+              },
+              {
+                "round": 1,
+                "difference_seconds": 0.01
+              },
+              {
+                "round": 2,
+                "difference_seconds": 0.01
+              },
+              {
+                "round": 3,
+                "difference_seconds": 0.0
+              },
+              {
+                "round": 4,
+                "difference_seconds": -0.01
+              }
+            ],
+            "median_difference_seconds": 0.0
+          },
+          "nsock_connection_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": 0.0
+              },
+              {
+                "round": 1,
+                "difference_seconds": 0.0
+              },
+              {
+                "round": 2,
+                "difference_seconds": 0.007
+              },
+              {
+                "round": 3,
+                "difference_seconds": 0.001
+              },
+              {
+                "round": 4,
+                "difference_seconds": 0.002
+              }
+            ],
+            "median_difference_seconds": 0.001
+          }
+        }
+      }
+    },
+    "netbuster": {
+      "raw_report": "live/netbuster-benchmark/report.json",
+      "raw_report_sha256": "e35eb409b1da80d9e4ed995168e320e1f57dd37cbb4b2cd8606e68624d9d969a",
+      "summaries": {
+        "nbver-only": {
+          "wall_seconds": {
+            "n": 5,
+            "median": 2.977965,
+            "min": 2.929972,
+            "max": 3.176804,
+            "values": [
+              2.977965,
+              2.929972,
+              2.934232,
+              3.176804,
+              3.05954
+            ]
+          },
+          "nmap_elapsed_seconds": {
+            "n": 5,
+            "median": 2.88,
+            "min": 2.84,
+            "max": 3.06,
+            "values": [
+              2.88,
+              2.84,
+              2.84,
+              3.06,
+              2.97
+            ]
+          },
+          "action_phase_seconds": {
+            "n": 5,
+            "median": 0.38,
+            "min": 0.36,
+            "max": 0.42,
+            "values": [
+              0.36,
+              0.37,
+              0.38,
+              0.42,
+              0.4
+            ]
+          },
+          "nsock_connection_seconds": {
+            "n": 5,
+            "median": 0.347,
+            "min": 0.322,
+            "max": 0.377,
+            "values": [
+              0.322,
+              0.33,
+              0.347,
+              0.377,
+              0.359
+            ]
+          }
+        },
+        "upstream": {
+          "wall_seconds": {
+            "n": 5,
+            "median": 8.188152,
+            "min": 7.709795,
+            "max": 8.957823,
+            "values": [
+              7.952573,
+              7.709795,
+              8.957823,
+              8.338656,
+              8.188152
+            ]
+          },
+          "nmap_elapsed_seconds": {
+            "n": 5,
+            "median": 8.08,
+            "min": 7.62,
+            "max": 8.85,
+            "values": [
+              7.85,
+              7.62,
+              8.85,
+              8.24,
+              8.08
+            ]
+          },
+          "action_phase_seconds": {
+            "n": 5,
+            "median": 5.32,
+            "min": 5.24,
+            "max": 5.53,
+            "values": [
+              5.37,
+              5.24,
+              5.53,
+              5.27,
+              5.32
+            ]
+          },
+          "nsock_connection_seconds": {
+            "n": 5,
+            "median": 5.278,
+            "min": 5.204,
+            "max": 5.463,
+            "values": [
+              5.323,
+              5.204,
+              5.463,
+              5.221,
+              5.278
+            ]
+          }
+        },
+        "final": {
+          "wall_seconds": {
+            "n": 5,
+            "median": 2.986457,
+            "min": 2.859887,
+            "max": 4.543883,
+            "values": [
+              2.859887,
+              2.902787,
+              3.039618,
+              4.543883,
+              2.986457
+            ]
+          },
+          "nmap_elapsed_seconds": {
+            "n": 5,
+            "median": 2.89,
+            "min": 2.77,
+            "max": 4.43,
+            "values": [
+              2.77,
+              2.82,
+              2.95,
+              4.43,
+              2.89
+            ]
+          },
+          "action_phase_seconds": {
+            "n": 5,
+            "median": 0.4,
+            "min": 0.38,
+            "max": 0.43,
+            "values": [
+              0.38,
+              0.38,
+              0.4,
+              0.43,
+              0.4
+            ]
+          },
+          "nsock_connection_seconds": {
+            "n": 5,
+            "median": 0.364,
+            "min": 0.341,
+            "max": 0.372,
+            "values": [
+              0.344,
+              0.341,
+              0.367,
+              0.372,
+              0.364
+            ]
+          }
+        }
+      },
+      "paired_comparisons": {
+        "nbver-only": {
+          "wall_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -4.974608
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.779823
+              },
+              {
+                "round": 2,
+                "difference_seconds": -6.023591
+              },
+              {
+                "round": 3,
+                "difference_seconds": -5.161852
+              },
+              {
+                "round": 4,
+                "difference_seconds": -5.128612
+              }
+            ],
+            "median_difference_seconds": -5.128612
+          },
+          "nmap_elapsed_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -4.97
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.78
+              },
+              {
+                "round": 2,
+                "difference_seconds": -6.01
+              },
+              {
+                "round": 3,
+                "difference_seconds": -5.18
+              },
+              {
+                "round": 4,
+                "difference_seconds": -5.11
+              }
+            ],
+            "median_difference_seconds": -5.11
+          },
+          "action_phase_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -5.01
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.87
+              },
+              {
+                "round": 2,
+                "difference_seconds": -5.15
+              },
+              {
+                "round": 3,
+                "difference_seconds": -4.85
+              },
+              {
+                "round": 4,
+                "difference_seconds": -4.92
+              }
+            ],
+            "median_difference_seconds": -4.92
+          },
+          "nsock_connection_seconds": {
+            "meaning": "nbver-only minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -5.001
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.874
+              },
+              {
+                "round": 2,
+                "difference_seconds": -5.116
+              },
+              {
+                "round": 3,
+                "difference_seconds": -4.844
+              },
+              {
+                "round": 4,
+                "difference_seconds": -4.919
+              }
+            ],
+            "median_difference_seconds": -4.919
+          }
+        },
+        "final": {
+          "wall_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -5.092686
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.807008
+              },
+              {
+                "round": 2,
+                "difference_seconds": -5.918205
+              },
+              {
+                "round": 3,
+                "difference_seconds": -3.794773
+              },
+              {
+                "round": 4,
+                "difference_seconds": -5.201695
+              }
+            ],
+            "median_difference_seconds": -5.092686
+          },
+          "nmap_elapsed_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -5.08
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.8
+              },
+              {
+                "round": 2,
+                "difference_seconds": -5.9
+              },
+              {
+                "round": 3,
+                "difference_seconds": -3.81
+              },
+              {
+                "round": 4,
+                "difference_seconds": -5.19
+              }
+            ],
+            "median_difference_seconds": -5.08
+          },
+          "action_phase_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -4.99
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.86
+              },
+              {
+                "round": 2,
+                "difference_seconds": -5.13
+              },
+              {
+                "round": 3,
+                "difference_seconds": -4.84
+              },
+              {
+                "round": 4,
+                "difference_seconds": -4.92
+              }
+            ],
+            "median_difference_seconds": -4.92
+          },
+          "nsock_connection_seconds": {
+            "meaning": "final minus upstream, paired by round",
+            "n": 5,
+            "pairs": [
+              {
+                "round": 0,
+                "difference_seconds": -4.979
+              },
+              {
+                "round": 1,
+                "difference_seconds": -4.863
+              },
+              {
+                "round": 2,
+                "difference_seconds": -5.096
+              },
+              {
+                "round": 3,
+                "difference_seconds": -4.849
+              },
+              {
+                "round": 4,
+                "difference_seconds": -4.914
+              }
+            ],
+            "median_difference_seconds": -4.914
+          }
+        }
+      }
+    }
+  },
+  "protected_netbus_supplement": {
+    "raw_report": "live/netbus-protected-check/report.json",
+    "status": "pass",
+    "purpose": "Behavior check with one warmup and one measured sample per upstream/final variant; not a five-sample performance comparison",
+    "summaries": {
+      "final": {
+        "wall_seconds": {
+          "n": 1,
+          "median": 2.54555,
+          "min": 2.54555,
+          "max": 2.54555,
+          "values": [
+            2.54555
+          ]
+        },
+        "nmap_elapsed_seconds": {
+          "n": 1,
+          "median": 2.47,
+          "min": 2.47,
+          "max": 2.47,
+          "values": [
+            2.47
+          ]
+        },
+        "action_phase_seconds": {
+          "n": 1,
+          "median": 0.05,
+          "min": 0.05,
+          "max": 0.05,
+          "values": [
+            0.05
+          ]
+        },
+        "nsock_connection_seconds": {
+          "n": 1,
+          "median": 0.027,
+          "min": 0.027,
+          "max": 0.027,
+          "values": [
+            0.027
+          ]
+        }
+      },
+      "upstream": {
+        "wall_seconds": {
+          "n": 1,
+          "median": 2.59481,
+          "min": 2.59481,
+          "max": 2.59481,
+          "values": [
+            2.59481
+          ]
+        },
+        "nmap_elapsed_seconds": {
+          "n": 1,
+          "median": 2.52,
+          "min": 2.52,
+          "max": 2.52,
+          "values": [
+            2.52
+          ]
+        },
+        "action_phase_seconds": {
+          "n": 1,
+          "median": 0.06,
+          "min": 0.06,
+          "max": 0.06,
+          "values": [
+            0.06
+          ]
+        },
+        "nsock_connection_seconds": {
+          "n": 1,
+          "median": 0.031,
+          "min": 0.031,
+          "max": 0.031,
+          "values": [
+            0.031
+          ]
+        }
+      }
+    },
+    "configuration": "Local /pass:review-control startup setting inside guest",
+    "first_eight_response_bytes_hex": "496e666f3b536f72"
+  },
+  "direct_controls": {
+    "connections_per_configuration": 6,
+    "delivery": "Three coalesced sends and three sends split between complete CR-delimited commands with 50ms delay.",
+    "configurations": [
+      "netbus",
+      "netbuster",
+      "netbus-protected"
+    ],
+    "response_scope": "Read exactly eight bytes; full raw responses are retained in PCAP, so fixture truncation is explicit."
+  },
+  "interpretation": {
+    "observed": "The nbver-only candidate added a five-second wait on default NetBus. The combined-query candidate removed that wait and retained NetBuster identification in every measured scan.",
+    "comparison": "Final and upstream NetBus NSE phase medians are both 0.06 s. Their wall medians differ by about 0.015 s in this VM. NetBuster NSE phase median falls from 5.32 s to 0.40 s.",
+    "limit": "Five samples on one emulated host establish the observed multi-second stall and its removal here; they do not establish equality of small delays or performance across other environments."
+  },
+  "isolation": {
+    "network": "QEMU preparation NIC removed before applications started; QMP final inventory empty and guest only loopback",
+    "host_shares": false,
+    "host_forwarding": false,
+    "application_user": "lab (guest non-root)",
+    "disk": "Ephemeral QEMU snapshot over existing lab scratch image",
+    "cleanup": "Guest poweroff issued after export; QEMU exited with code 0."
+  },
+  "export": {
+    "sha256": "e0d72c0e140a553f98c0eeba78cb4f6872133cab0a95151383fcd785174428eb",
+    "size_bytes": 86335,
+    "transport": "gzip tar encoded over VM serial; guest and host SHA256 equality verified",
+    "files": 191
+  },
+  "limitations": [
+    "Native Windows not tested.",
+    "Positive coverage is archived NetBuster 1.31 default settings.",
+    "NetBus 1.70 tested with default and password-protected settings, with Wine audio/MIDI disabled.",
+    "Earlier NetBuster TCP connect scan crashed under Wine; successful live measurements use SYN scan.",
+    "Archive identity is recorded but not authenticated by the original authors.",
+    "The 5-second socket timeout is unchanged; it is not a total action duration or input-size bound."
+  ],
+  "source_archives": {
+    "netbus": {
+      "version": "1.70",
+      "source": "https://archive.org/download/nt.-tools/NT.Tools.zip/NT.Tools%2FNetBus170.zip",
+      "archive_size_bytes": 548808,
+      "archive_sha256": "8b0563e23f4d16dec5690ab5d13db89470b8982e25ec8fd12cba22eccb7916f4",
+      "executable_sha256": "73a62d6593e3c70b60455299b793bb18d31eddd5f15d04442932c1d3ccb7eb0c",
+      "wine_overrides": "winealsa.drv,winepulse.drv,midimap,mscoree,mshtml="
+    },
+    "netbuster": {
+      "version": "1.31",
+      "source": "https://archive.org/download/nt.-tools/NT.Tools.zip/NT.Tools%2Fnetbuster1_31.zip",
+      "archive_sha256": "fc2cf72e12114ce56d5e829d46963d4791284ce5d48c08068e3cf783c1102098",
+      "executable_sha256": "6331541f77e30271bf4347d5ecd8dc220551c7dfc500b297cf412f74628bbb3d",
+      "wine_overrides": "mscoree,mshtml="
+    }
+  },
+  "independent_verification": "verification.json",
+  "controls_provenance": "controls-provenance.json"
+}

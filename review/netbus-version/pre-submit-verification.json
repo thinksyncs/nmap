@@ -1,0 +1,52 @@
+{
+  "status": "pass",
+  "scope": "loopback replay and patch reproducibility",
+  "live_application_execution": false,
+  "checks": {
+    "manifest": "pass",
+    "patch": {
+      "status": "pass",
+      "commands": [
+        {
+          "command": [
+            "git",
+            "apply",
+            "--check",
+            "--whitespace=error-all",
+            "/private/tmp/netbus-pre-submit-5ca7a6pg/netbus-review/patches/netbus-version.patch"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "apply",
+            "--whitespace=error-all",
+            "/private/tmp/netbus-pre-submit-5ca7a6pg/netbus-review/patches/netbus-version.patch"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ],
+      "applied_sha256": "f1b740d60445ed7bac6bd3c4d6756494e9211ea531d3448f11a462a3c0062631",
+      "exact_candidate_byte_equality": true
+    },
+    "forced": {
+      "status": "pass",
+      "cases": 31
+    },
+    "ordinary": {
+      "status": "pass",
+      "cases": 10
+    },
+    "upstream_bug": {
+      "status": "reproduced",
+      "false_identifications": 2,
+      "note": "Expected harness exit 1; Nmap itself completed successfully in both cases."
+    }
+  },
+  "candidate_sha256": "f1b740d60445ed7bac6bd3c4d6756494e9211ea531d3448f11a462a3c0062631"
+}

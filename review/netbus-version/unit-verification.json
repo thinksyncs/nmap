@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "nmap_exit_code": 0,
+  "candidate_cases": 41,
+  "scope": "Standalone candidate socket contracts from the extracted review archive plus the supplied contract module; no targets or real services.",
+  "candidate_sha256": "f1b740d60445ed7bac6bd3c4d6756494e9211ea531d3448f11a462a3c0062631",
+  "module_sha256": "c540cb59be8fca4e399c38f93087325f1136c91e5da6cbdd18ba3aef99ebfafe",
+  "nmap_version": "7.99",
+  "lua_version": "5.4.8",
+  "command_location": "README.md: standalone unittest command; absolute local output paths omitted here."
+}
