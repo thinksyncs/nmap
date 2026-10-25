@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "at_utc": "2026-10-25T15:08:46.677083+00:00",
+  "scope": "Local portable review bundle; not a new application benchmark or upstream acceptance.",
+  "archive": "patches/multiversion-review/netbus-multiversion-review.tar.gz",
+  "archive_sha256": "c33688a0a5d0babf03bf3bb3ab0799e762a04e3d7e2e33c9fc7a2b85d5770f47",
+  "archive_size_bytes": 1285686,
+  "candidate_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+  "bundle_files": 1740,
+  "deterministic_rebuild_matches": true,
+  "extracted_final_artifact_verified": true,
+  "original_workspace_reads_denied_during_validation": true,
+  "offline_network_access_denied": true,
+  "fresh_checks": {
+    "independent_contract_cases": 169,
+    "saved_response_replay_cases": 20,
+    "synthetic_comparison_scans": 28,
+    "portable_path_tests": 8,
+    "corrupt_or_missing_archive_data_rejected": 2
+  },
+  "retained_data_reverified": {
+    "synthetic_scans": 136,
+    "application_scans": 168,
+    "direct_controls": 11
+  },
+  "new_application_execution": false,
+  "frozen_final_artifacts_unchanged": 20,
+  "prior_evidence_files_unchanged": 16807,
+  "public_artifacts_unchanged": [
+    "patches/netbus-version.patch",
+    "patches/submission-evidence/netbus-review.tar.gz",
+    "evidence/pr-submission.json"
+  ],
+  "pr_created_or_updated": false,
+  "pushed": false,
+  "merged": false,
+  "tooling_note": "The initial nested sandbox launch was denied before execution; the final permitted sandbox launches above both exited zero.",
+  "limits": [
+    "Measurements are against the preceding local candidate, not PR #3570.",
+    "Application evidence is Wine/QEMU, not native Windows.",
+    "Refresh the upstream base and contribution policy before submission.",
+    "Maintainer review and upstream CI/adoption are separate from these local checks."
+  ]
+}

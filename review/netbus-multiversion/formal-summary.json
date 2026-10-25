@@ -1,0 +1,1484 @@
+{
+  "status": "pass",
+  "at_utc": "2026-10-25T13:35:46.572223+00:00",
+  "scope": "isolated actual saved binaries under Wine10.7; controlledloopback; not nativeWindows or deploymentlatency",
+  "candidate_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+  "baseline_sha256": "72aee0811d8adc677a6f1ff61320b18e814ed965618ea0c6811c67cf33363982",
+  "formal_counts": {
+    "total": 168,
+    "warmup": 28,
+    "expected_baseline_misses": 12,
+    "candidate_scans": 84,
+    "candidate_positive_success": 78,
+    "measured": 140,
+    "versionless_112_success": 18,
+    "negative_control_success": 6
+  },
+  "pilot_scans_excluded": 6,
+  "formal_scans_excluded": 0,
+  "identities": {
+    "baseline": {
+      "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.60\"}": 12,
+      "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 24,
+      "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 24,
+      "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 18,
+      "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.70\"}": 6
+    },
+    "candidate": {
+      "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 30,
+      "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 30,
+      "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 18,
+      "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.70\"}": 6
+    }
+  },
+  "conditions": [
+    {
+      "product": "130",
+      "setting": "info0",
+      "condition": "retry-merge100",
+      "label": "retry-merge100-130-info0",
+      "raw_report": "results/retry-merge100-130-info0/report.json",
+      "raw_xml_and_logs_directory": "results/retry-merge100-130-info0",
+      "raw_capture": "results/retry-merge100-130-info0.pcap",
+      "capture_completion": "results/retry-merge100-130-info0-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 5.17,
+          "min": 5.14,
+          "max": 5.17,
+          "values": [
+            5.17,
+            5.17,
+            5.14,
+            5.17,
+            5.14
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 1.53,
+          "min": 1.52,
+          "max": 1.57,
+          "values": [
+            1.57,
+            1.52,
+            1.52,
+            1.53,
+            1.53
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 7.51,
+          "min": 7.49,
+          "max": 7.58,
+          "values": [
+            7.52,
+            7.51,
+            7.49,
+            7.58,
+            7.5
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.9,
+          "min": 3.87,
+          "max": 4.03,
+          "values": [
+            3.9,
+            3.87,
+            4.03,
+            3.95,
+            3.87
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 7.600722,
+          "min": 7.577962,
+          "max": 7.671483,
+          "values": [
+            7.600722,
+            7.60088,
+            7.579728,
+            7.671483,
+            7.577962
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.98667,
+          "min": 3.946006,
+          "max": 4.116434,
+          "values": [
+            3.98667,
+            3.95592,
+            4.116434,
+            4.036245,
+            3.946006
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.60\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": -3.64
+    },
+    {
+      "product": "130",
+      "setting": "info0",
+      "condition": "split50",
+      "label": "split50-130-info0",
+      "raw_report": "results/split50-130-info0/report.json",
+      "raw_xml_and_logs_directory": "results/split50-130-info0",
+      "raw_capture": "results/split50-130-info0.pcap",
+      "capture_completion": "results/split50-130-info0-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.92,
+          "min": 0.9,
+          "max": 1.03,
+          "values": [
+            0.92,
+            0.91,
+            0.94,
+            0.9,
+            1.03
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.94,
+          "min": 0.92,
+          "max": 0.98,
+          "values": [
+            0.92,
+            0.94,
+            0.98,
+            0.95,
+            0.92
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.29,
+          "min": 3.25,
+          "max": 3.37,
+          "values": [
+            3.29,
+            3.25,
+            3.34,
+            3.27,
+            3.37
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.28,
+          "min": 3.26,
+          "max": 3.36,
+          "values": [
+            3.26,
+            3.28,
+            3.34,
+            3.36,
+            3.28
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.377299,
+          "min": 3.326735,
+          "max": 3.453943,
+          "values": [
+            3.377299,
+            3.326735,
+            3.42291,
+            3.350923,
+            3.453943
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.371206,
+          "min": 3.340877,
+          "max": 3.441331,
+          "values": [
+            3.340877,
+            3.371206,
+            3.419119,
+            3.441331,
+            3.3631
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.02
+    },
+    {
+      "product": "130",
+      "setting": "info0",
+      "condition": "delay1500-refuse",
+      "label": "delay1500-refuse-130-info0",
+      "raw_report": "results/delay1500-refuse-130-info0/report.json",
+      "raw_xml_and_logs_directory": "results/delay1500-refuse-130-info0",
+      "raw_capture": "results/delay1500-refuse-130-info0.pcap",
+      "capture_completion": "results/delay1500-refuse-130-info0-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 1.84,
+          "min": 1.81,
+          "max": 1.85,
+          "values": [
+            1.85,
+            1.84,
+            1.84,
+            1.81,
+            1.81
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 1.82,
+          "min": 1.81,
+          "max": 1.84,
+          "values": [
+            1.84,
+            1.81,
+            1.84,
+            1.82,
+            1.81
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 4.2,
+          "min": 4.16,
+          "max": 4.22,
+          "values": [
+            4.22,
+            4.22,
+            4.2,
+            4.16,
+            4.17
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 4.19,
+          "min": 4.15,
+          "max": 4.23,
+          "values": [
+            4.19,
+            4.15,
+            4.23,
+            4.21,
+            4.19
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 4.289802,
+          "min": 4.243096,
+          "max": 4.305905,
+          "values": [
+            4.294464,
+            4.305905,
+            4.289802,
+            4.243096,
+            4.247833
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 4.278863,
+          "min": 4.244723,
+          "max": 4.317413,
+          "values": [
+            4.273735,
+            4.244723,
+            4.317413,
+            4.291134,
+            4.278863
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": -0.02
+    },
+    {
+      "product": "130",
+      "setting": "default",
+      "condition": "direct",
+      "label": "direct-130-default",
+      "raw_report": "results/direct-130-default/report.json",
+      "raw_xml_and_logs_directory": "results/direct-130-default",
+      "raw_capture": "results/direct-130-default.pcap",
+      "capture_completion": "results/direct-130-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.29,
+          "min": 0.28,
+          "max": 0.29,
+          "values": [
+            0.28,
+            0.29,
+            0.29,
+            0.28,
+            0.29
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.29,
+          "min": 0.29,
+          "max": 0.31,
+          "values": [
+            0.29,
+            0.29,
+            0.3,
+            0.29,
+            0.31
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.67,
+          "min": 2.6,
+          "max": 2.79,
+          "values": [
+            2.66,
+            2.79,
+            2.69,
+            2.6,
+            2.67
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.65,
+          "min": 2.64,
+          "max": 2.69,
+          "values": [
+            2.65,
+            2.69,
+            2.66,
+            2.64,
+            2.65
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.783529,
+          "min": 2.713162,
+          "max": 2.907697,
+          "values": [
+            2.760375,
+            2.907697,
+            2.789413,
+            2.713162,
+            2.783529
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.76552,
+          "min": 2.749015,
+          "max": 2.800741,
+          "values": [
+            2.76552,
+            2.800741,
+            2.775252,
+            2.749015,
+            2.760663
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.0
+    },
+    {
+      "product": "130",
+      "setting": "default",
+      "condition": "split50",
+      "label": "split50-130-default",
+      "raw_report": "results/split50-130-default/report.json",
+      "raw_xml_and_logs_directory": "results/split50-130-default",
+      "raw_capture": "results/split50-130-default.pcap",
+      "capture_completion": "results/split50-130-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.71,
+          "min": 0.65,
+          "max": 0.75,
+          "values": [
+            0.75,
+            0.65,
+            0.75,
+            0.71,
+            0.7
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.71,
+          "min": 0.67,
+          "max": 0.82,
+          "values": [
+            0.71,
+            0.67,
+            0.82,
+            0.74,
+            0.68
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.07,
+          "min": 3.01,
+          "max": 3.11,
+          "values": [
+            3.11,
+            3.01,
+            3.06,
+            3.07,
+            3.1
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.08,
+          "min": 3.05,
+          "max": 3.19,
+          "values": [
+            3.08,
+            3.06,
+            3.19,
+            3.13,
+            3.05
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.154032,
+          "min": 3.098832,
+          "max": 3.192789,
+          "values": [
+            3.192789,
+            3.098832,
+            3.154032,
+            3.14724,
+            3.183782
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.163662,
+          "min": 3.137542,
+          "max": 3.270121,
+          "values": [
+            3.163662,
+            3.14648,
+            3.270121,
+            3.220833,
+            3.137542
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.30\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.0
+    },
+    {
+      "product": "131",
+      "setting": "info0",
+      "condition": "retry-merge100",
+      "label": "retry-merge100-131-info0",
+      "raw_report": "results/retry-merge100-131-info0/report.json",
+      "raw_xml_and_logs_directory": "results/retry-merge100-131-info0",
+      "raw_capture": "results/retry-merge100-131-info0.pcap",
+      "capture_completion": "results/retry-merge100-131-info0-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 5.17,
+          "min": 5.15,
+          "max": 5.19,
+          "values": [
+            5.17,
+            5.16,
+            5.19,
+            5.15,
+            5.17
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 1.55,
+          "min": 1.55,
+          "max": 1.56,
+          "values": [
+            1.56,
+            1.55,
+            1.55,
+            1.55,
+            1.56
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 7.53,
+          "min": 7.51,
+          "max": 7.63,
+          "values": [
+            7.53,
+            7.51,
+            7.53,
+            7.63,
+            7.51
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.9,
+          "min": 3.9,
+          "max": 3.97,
+          "values": [
+            3.97,
+            3.9,
+            3.92,
+            3.9,
+            3.9
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 7.617568,
+          "min": 7.59004,
+          "max": 7.720569,
+          "values": [
+            7.647132,
+            7.59004,
+            7.617568,
+            7.720569,
+            7.591915
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.989185,
+          "min": 3.97903,
+          "max": 4.050722,
+          "values": [
+            4.050722,
+            3.989185,
+            4.008291,
+            3.97903,
+            3.984759
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.60\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": -3.62
+    },
+    {
+      "product": "131",
+      "setting": "info0",
+      "condition": "split50",
+      "label": "split50-131-info0",
+      "raw_report": "results/split50-131-info0/report.json",
+      "raw_xml_and_logs_directory": "results/split50-131-info0",
+      "raw_capture": "results/split50-131-info0.pcap",
+      "capture_completion": "results/split50-131-info0-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.96,
+          "min": 0.96,
+          "max": 1.01,
+          "values": [
+            1.01,
+            0.96,
+            0.96,
+            0.99,
+            0.96
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.99,
+          "min": 0.95,
+          "max": 1.0,
+          "values": [
+            0.99,
+            0.97,
+            0.95,
+            1.0,
+            0.99
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.34,
+          "min": 3.29,
+          "max": 3.36,
+          "values": [
+            3.36,
+            3.29,
+            3.34,
+            3.34,
+            3.29
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.35,
+          "min": 3.3,
+          "max": 3.39,
+          "values": [
+            3.36,
+            3.33,
+            3.3,
+            3.39,
+            3.35
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.422431,
+          "min": 3.367412,
+          "max": 3.446473,
+          "values": [
+            3.446473,
+            3.371212,
+            3.42572,
+            3.422431,
+            3.367412
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.43664,
+          "min": 3.377536,
+          "max": 3.476278,
+          "values": [
+            3.455891,
+            3.411439,
+            3.377536,
+            3.476278,
+            3.43664
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.03
+    },
+    {
+      "product": "131",
+      "setting": "info0",
+      "condition": "delay1500-refuse",
+      "label": "delay1500-refuse-131-info0",
+      "raw_report": "results/delay1500-refuse-131-info0/report.json",
+      "raw_xml_and_logs_directory": "results/delay1500-refuse-131-info0",
+      "raw_capture": "results/delay1500-refuse-131-info0.pcap",
+      "capture_completion": "results/delay1500-refuse-131-info0-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 1.83,
+          "min": 1.82,
+          "max": 1.87,
+          "values": [
+            1.87,
+            1.83,
+            1.82,
+            1.82,
+            1.87
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 1.82,
+          "min": 1.8,
+          "max": 1.84,
+          "values": [
+            1.82,
+            1.8,
+            1.82,
+            1.84,
+            1.83
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 4.18,
+          "min": 4.15,
+          "max": 4.21,
+          "values": [
+            4.21,
+            4.18,
+            4.15,
+            4.18,
+            4.19
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 4.18,
+          "min": 4.15,
+          "max": 4.23,
+          "values": [
+            4.18,
+            4.15,
+            4.17,
+            4.18,
+            4.23
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 4.271598,
+          "min": 4.239005,
+          "max": 4.29308,
+          "values": [
+            4.29308,
+            4.259917,
+            4.239005,
+            4.271598,
+            4.283173
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 4.264778,
+          "min": 4.235306,
+          "max": 4.319846,
+          "values": [
+            4.264778,
+            4.235306,
+            4.251103,
+            4.271403,
+            4.319846
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": -0.01
+    },
+    {
+      "product": "131",
+      "setting": "default",
+      "condition": "direct",
+      "label": "direct-131-default",
+      "raw_report": "results/direct-131-default/report.json",
+      "raw_xml_and_logs_directory": "results/direct-131-default",
+      "raw_capture": "results/direct-131-default.pcap",
+      "capture_completion": "results/direct-131-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.3,
+          "min": 0.28,
+          "max": 0.35,
+          "values": [
+            0.35,
+            0.28,
+            0.29,
+            0.3,
+            0.3
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.33,
+          "min": 0.29,
+          "max": 0.34,
+          "values": [
+            0.33,
+            0.34,
+            0.31,
+            0.29,
+            0.34
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.65,
+          "min": 2.62,
+          "max": 2.83,
+          "values": [
+            2.83,
+            2.65,
+            2.62,
+            2.69,
+            2.62
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.67,
+          "min": 2.62,
+          "max": 2.74,
+          "values": [
+            2.73,
+            2.74,
+            2.63,
+            2.62,
+            2.67
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.749414,
+          "min": 2.7288,
+          "max": 2.94174,
+          "values": [
+            2.94174,
+            2.749414,
+            2.729793,
+            2.802722,
+            2.7288
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.778715,
+          "min": 2.726895,
+          "max": 2.853137,
+          "values": [
+            2.845118,
+            2.853137,
+            2.739513,
+            2.726895,
+            2.778715
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.03
+    },
+    {
+      "product": "131",
+      "setting": "default",
+      "condition": "split50",
+      "label": "split50-131-default",
+      "raw_report": "results/split50-131-default/report.json",
+      "raw_xml_and_logs_directory": "results/split50-131-default",
+      "raw_capture": "results/split50-131-default.pcap",
+      "capture_completion": "results/split50-131-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.74,
+          "min": 0.71,
+          "max": 0.81,
+          "values": [
+            0.71,
+            0.72,
+            0.74,
+            0.76,
+            0.81
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.75,
+          "min": 0.7,
+          "max": 0.78,
+          "values": [
+            0.75,
+            0.78,
+            0.7,
+            0.76,
+            0.71
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.1,
+          "min": 3.04,
+          "max": 3.14,
+          "values": [
+            3.04,
+            3.1,
+            3.11,
+            3.1,
+            3.14
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.11,
+          "min": 3.04,
+          "max": 3.14,
+          "values": [
+            3.11,
+            3.13,
+            3.04,
+            3.14,
+            3.08
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.184758,
+          "min": 3.124294,
+          "max": 3.221465,
+          "values": [
+            3.124294,
+            3.184758,
+            3.191079,
+            3.184057,
+            3.221465
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.193994,
+          "min": 3.128502,
+          "max": 3.243042,
+          "values": [
+            3.193994,
+            3.243042,
+            3.128502,
+            3.220814,
+            3.157906
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": \"1.31\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.01
+    },
+    {
+      "product": "112",
+      "setting": "default",
+      "condition": "direct",
+      "label": "direct-112-default",
+      "raw_report": "results/direct-112-default/report.json",
+      "raw_xml_and_logs_directory": "results/direct-112-default",
+      "raw_capture": "results/direct-112-default.pcap",
+      "capture_completion": "results/direct-112-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.33,
+          "min": 0.33,
+          "max": 0.35,
+          "values": [
+            0.35,
+            0.35,
+            0.33,
+            0.33,
+            0.33
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.34,
+          "min": 0.33,
+          "max": 0.36,
+          "values": [
+            0.33,
+            0.34,
+            0.34,
+            0.36,
+            0.35
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.66,
+          "min": 2.62,
+          "max": 2.71,
+          "values": [
+            2.68,
+            2.66,
+            2.62,
+            2.63,
+            2.71
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.65,
+          "min": 2.64,
+          "max": 2.76,
+          "values": [
+            2.68,
+            2.64,
+            2.65,
+            2.76,
+            2.65
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.764699,
+          "min": 2.731416,
+          "max": 2.8259,
+          "values": [
+            2.789456,
+            2.764699,
+            2.731416,
+            2.737164,
+            2.8259
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.764508,
+          "min": 2.748238,
+          "max": 2.875883,
+          "values": [
+            2.799591,
+            2.748238,
+            2.76174,
+            2.875883,
+            2.764508
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.01
+    },
+    {
+      "product": "112",
+      "setting": "default",
+      "condition": "hold400",
+      "label": "hold400-112-default",
+      "raw_report": "results/hold400-112-default/report.json",
+      "raw_xml_and_logs_directory": "results/hold400-112-default",
+      "raw_capture": "results/hold400-112-default.pcap",
+      "capture_completion": "results/hold400-112-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.81,
+          "min": 0.78,
+          "max": 0.89,
+          "values": [
+            0.79,
+            0.78,
+            0.82,
+            0.89,
+            0.81
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.78,
+          "min": 0.77,
+          "max": 0.91,
+          "values": [
+            0.78,
+            0.77,
+            0.78,
+            0.91,
+            0.8
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.15,
+          "min": 3.09,
+          "max": 3.3,
+          "values": [
+            3.12,
+            3.09,
+            3.15,
+            3.3,
+            3.19
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.12,
+          "min": 3.07,
+          "max": 3.78,
+          "values": [
+            3.12,
+            3.11,
+            3.07,
+            3.78,
+            3.13
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.235613,
+          "min": 3.175567,
+          "max": 3.4024,
+          "values": [
+            3.212231,
+            3.175567,
+            3.235613,
+            3.4024,
+            3.274268
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.198911,
+          "min": 3.159087,
+          "max": 3.867516,
+          "values": [
+            3.198911,
+            3.192715,
+            3.159087,
+            3.867516,
+            3.204905
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": -0.03
+    },
+    {
+      "product": "112",
+      "setting": "default",
+      "condition": "hold400-refuse",
+      "label": "hold400-refuse-112-default",
+      "raw_report": "results/hold400-refuse-112-default/report.json",
+      "raw_xml_and_logs_directory": "results/hold400-refuse-112-default",
+      "raw_capture": "results/hold400-refuse-112-default.pcap",
+      "capture_completion": "results/hold400-refuse-112-default-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.78,
+          "min": 0.76,
+          "max": 0.81,
+          "values": [
+            0.79,
+            0.78,
+            0.81,
+            0.77,
+            0.76
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.79,
+          "min": 0.77,
+          "max": 0.82,
+          "values": [
+            0.79,
+            0.79,
+            0.82,
+            0.79,
+            0.77
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.12,
+          "min": 3.1,
+          "max": 3.16,
+          "values": [
+            3.12,
+            3.11,
+            3.16,
+            3.12,
+            3.1
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.12,
+          "min": 3.09,
+          "max": 3.18,
+          "values": [
+            3.12,
+            3.12,
+            3.14,
+            3.09,
+            3.18
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 3.199482,
+          "min": 3.18533,
+          "max": 3.242139,
+          "values": [
+            3.197783,
+            3.199482,
+            3.242139,
+            3.214574,
+            3.18533
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 3.213475,
+          "min": 3.167891,
+          "max": 3.257926,
+          "values": [
+            3.213475,
+            3.193355,
+            3.231586,
+            3.167891,
+            3.257926
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": \"honeypot\", \"name\": \"netbus\", \"product\": \"NetBuster\", \"version\": null}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.01
+    },
+    {
+      "product": "170",
+      "setting": "default",
+      "condition": "direct",
+      "label": "direct-170",
+      "raw_report": "results/direct-170/report.json",
+      "raw_xml_and_logs_directory": "results/direct-170",
+      "raw_capture": "results/direct-170.pcap",
+      "capture_completion": "results/direct-170-completion.json",
+      "nse_phase_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 0.09,
+          "min": 0.09,
+          "max": 0.1,
+          "values": [
+            0.1,
+            0.09,
+            0.09,
+            0.09,
+            0.1
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 0.09,
+          "min": 0.08,
+          "max": 0.11,
+          "values": [
+            0.09,
+            0.09,
+            0.09,
+            0.11,
+            0.08
+          ]
+        }
+      },
+      "nmap_elapsed_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.37,
+          "min": 2.36,
+          "max": 2.38,
+          "values": [
+            2.38,
+            2.36,
+            2.37,
+            2.36,
+            2.38
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.38,
+          "min": 2.35,
+          "max": 2.38,
+          "values": [
+            2.35,
+            2.37,
+            2.38,
+            2.38,
+            2.38
+          ]
+        }
+      },
+      "wall_seconds": {
+        "baseline": {
+          "n": 5,
+          "median": 2.470991,
+          "min": 2.46251,
+          "max": 2.486551,
+          "values": [
+            2.486551,
+            2.465867,
+            2.470991,
+            2.46251,
+            2.481299
+          ]
+        },
+        "candidate": {
+          "n": 5,
+          "median": 2.468128,
+          "min": 2.449439,
+          "max": 2.484866,
+          "values": [
+            2.449439,
+            2.457117,
+            2.468128,
+            2.484866,
+            2.477538
+          ]
+        }
+      },
+      "identities": {
+        "baseline": {
+          "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.70\"}": 6
+        },
+        "candidate": {
+          "{\"extrainfo\": null, \"name\": \"netbus\", \"product\": \"NetBus trojan\", \"version\": \"1.70\"}": 6
+        }
+      },
+      "candidate_minus_baseline_nse_median_seconds": 0.0
+    }
+  ],
+  "limitations": [
+    "Actual archived applications were executed in Wine/TCG, not native Windows.",
+    "Grouped relay writes and TCP reconstruction do not prove application receive-call boundaries.",
+    "Five measured runs per variant/condition characterize this lab only.",
+    "NetBus 1.70 is one concrete negative control; it does not establish a false-positive rate."
+  ]
+}

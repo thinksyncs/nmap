@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "new_application_runs": false,
+  "checks": {
+    "manifest_files": 1739,
+    "patches": [
+      "upstream",
+      "pr3570"
+    ],
+    "fixture_files": 6,
+    "contracts": 169,
+    "saved_localhost": {
+      "status": "pass",
+      "summary_sha256": "94eb684705a75a8d3bbcc7ca5bddeb7678d0ef900d2896a1c9016b062b3be1e6",
+      "verified_conditions": 17,
+      "verified_scans": 136,
+      "measured_scans": 102,
+      "warmup_scans": 34,
+      "raw_artifacts_checked": 544,
+      "forced_info_apps_merges": 32,
+      "forced_pending_apps_query_merges": 8,
+      "original_delayed_response_cases": 32,
+      "source_sha256": {
+        "baseline": "72aee0811d8adc677a6f1ff61320b18e814ed965618ea0c6811c67cf33363982",
+        "candidate": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130"
+      }
+    },
+    "saved_applications": {
+      "total": 168,
+      "warmup": 28,
+      "expected_baseline_misses": 12,
+      "candidate_scans": 84,
+      "candidate_positive_success": 78,
+      "measured": 140,
+      "versionless_112_success": 18,
+      "negative_control_success": 6
+    },
+    "fresh_replay": {
+      "1.30": 10,
+      "1.31": 10
+    },
+    "fresh_comparison": {
+      "conditions": 7,
+      "scans": 28,
+      "scope": "Fresh synthetic localhost reproduction; not new application measurements"
+    },
+    "attachment_unchanged": true
+  },
+  "candidate_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130"
+}
