@@ -135,4 +135,7 @@ stamp-h1
 /zenmap/install_scripts/windows/styrene/
 /zenmap/install_scripts/windows/*.pkg.tar.zst
 /zenmap/install_scripts/windows/tmp.cfg
+
+# Local Codex Cloud toolchain, extracted review fixtures, and test results.
+/.codex-cache/
 /zenmap/zenmapCore/data/locale/*/

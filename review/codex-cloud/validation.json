@@ -1,0 +1,88 @@
+{
+  "status": "pass",
+  "at_utc": "2026-11-11T12:05:52.241258+00:00",
+  "suite": "all",
+  "python_version": "3.12.14",
+  "test_runner_sha256": "2d667a165ab580f2bbf85889dc7dd788b6931aa9da80d73e3fa59c80f184a8bb",
+  "new_application_runs": false,
+  "checks": {
+    "contracts": {
+      "status": "pass",
+      "total": 169,
+      "failed": 0
+    },
+    "replay": {
+      "status": "pass",
+      "cases": {
+        "1.30": 10,
+        "1.31": 10
+      },
+      "total": 20,
+      "scope": "Fresh Nmap scans of saved-response replay servers on 127.0.0.1"
+    },
+    "compare": {
+      "status": "pass",
+      "conditions": 7,
+      "scans": 28,
+      "baseline_sha256": "72aee0811d8adc677a6f1ff61320b18e814ed965618ea0c6811c67cf33363982",
+      "scope": "Fresh synthetic localhost scans; baseline is the retained local candidate, not PR #3570"
+    },
+    "review": {
+      "status": "pass",
+      "scope": "Frozen archive validation and saved measurements; not live-source coverage",
+      "candidate_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+      "checks": {
+        "manifest_files": 1739,
+        "patches": [
+          "upstream",
+          "pr3570"
+        ],
+        "fixture_files": 6,
+        "contracts": 169,
+        "saved_localhost": {
+          "status": "pass",
+          "summary_sha256": "94eb684705a75a8d3bbcc7ca5bddeb7678d0ef900d2896a1c9016b062b3be1e6",
+          "verified_conditions": 17,
+          "verified_scans": 136,
+          "measured_scans": 102,
+          "warmup_scans": 34,
+          "raw_artifacts_checked": 544,
+          "forced_info_apps_merges": 32,
+          "forced_pending_apps_query_merges": 8,
+          "original_delayed_response_cases": 32,
+          "source_sha256": {
+            "baseline": "72aee0811d8adc677a6f1ff61320b18e814ed965618ea0c6811c67cf33363982",
+            "candidate": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130"
+          }
+        },
+        "saved_applications": {
+          "total": 168,
+          "warmup": 28,
+          "expected_baseline_misses": 12,
+          "candidate_scans": 84,
+          "candidate_positive_success": 78,
+          "measured": 140,
+          "versionless_112_success": 18,
+          "negative_control_success": 6
+        },
+        "fresh_replay": "not run",
+        "fresh_comparison": "not run",
+        "attachment_unchanged": true
+      },
+      "new_application_runs": false
+    }
+  },
+  "runtime_build": {
+    "source_commit": "1aa2aaa7ae695bed2f89c2e475f6e003e52b97fb",
+    "built_at_utc": "2026-11-11T12:04:29.906084+00:00",
+    "nmap_version": "Nmap version 7.992SVN ( https://nmap.org )\nPlatform: x86_64-unknown-linux-gnu\nCompiled with: nmap-liblua-5.4.9 nmap-libz-1.3.2 nmap-libpcre2-10.49 nmap-libpcap-(64-bit nmap-libdnet-1.18.2 ipv6\nCompiled without: openssl libssh2\nAvailable nsock engines: epoll poll select",
+    "lua_version": "Lua 5.4.9  Copyright (C) 1994-2026 Lua.org, PUC-Rio"
+  },
+  "source_commit": "1aa2aaa7ae695bed2f89c2e475f6e003e52b97fb",
+  "working_script_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+  "archive_sha256": "c33688a0a5d0babf03bf3bb3ab0799e762a04e3d7e2e33c9fc7a2b85d5770f47",
+  "lua_version": "Lua 5.4.9  Copyright (C) 1994-2026 Lua.org, PUC-Rio",
+  "nmap_version": "Nmap version 7.992SVN ( https://nmap.org )\nPlatform: x86_64-unknown-linux-gnu\nCompiled with: nmap-liblua-5.4.9 nmap-libz-1.3.2 nmap-libpcre2-10.49 nmap-libpcap-(64-bit nmap-libdnet-1.18.2 ipv6\nCompiled without: openssl libssh2\nAvailable nsock engines: epoll poll select",
+  "frozen_script_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+  "elapsed_seconds": 88.124
+}
