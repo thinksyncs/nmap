@@ -1,0 +1,304 @@
+{
+  "status": "pass",
+  "source_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+  "scan_runner_sha256": "44452df67d509d98408b5096eda2fc316bf33763fc159a801cc20cd2098c2307",
+  "test_sha256": "3cc01de7e38ff2db954d43d03e451e0ae8aa8d344209ae02d0a4b913f88bc333",
+  "new_application_runs": false,
+  "cases": [
+    {
+      "case": "positive130-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBuster",
+        "version": "1.30",
+        "extrainfo": "honeypot",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "312e33302d312d31"
+        }
+      ]
+    },
+    {
+      "case": "positive131-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBuster",
+        "version": "1.31",
+        "extrainfo": "honeypot",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "312e33312d312d31"
+        }
+      ]
+    },
+    {
+      "case": "info112-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBuster",
+        "extrainfo": "honeypot",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b596f7572204950206973206c6f6767656420616e6420796f752077696c6c206265206e756b6564205645525920736f6f6e210d"
+        }
+      ]
+    },
+    {
+      "case": "negative170-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBus trojan",
+        "version": "1.70",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b50726f6772616d20506174683a205a3a5c686f6d655c6c61625c6e65746275735c50617463682e6578657c526573746172742070657273697374656e743a205965737c4c6f67696e2049443a206c61627c436c69656e747320636f6e6e656374656420746f207468697320686f73743a20310d"
+        },
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b50726f6772616d20506174683a205a3a5c686f6d655c6c61625c6e65746275735c50617463682e6578657c526573746172742070657273697374656e743a205965737c4c6f67696e2049443a206c61627c436c69656e747320636f6e6e656374656420746f207468697320686f73743a20310d"
+        }
+      ]
+    },
+    {
+      "case": "denied-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBus trojan",
+        "version": "1.70",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b536f7272792c20686f73742069732070617373776f72642070726f7465637465642e0d"
+        },
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b536f7272792c20686f73742069732070617373776f72642070726f7465637465642e0d"
+        }
+      ]
+    },
+    {
+      "case": "eof7-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBus trojan",
+        "version": "1.60",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "312e33312d312d"
+        },
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "312e33312d312d"
+        },
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "312e33312d312d"
+        }
+      ]
+    },
+    {
+      "case": "timeout-ipv4",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBus trojan",
+        "version": "1.60",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574417070730d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574417070730d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574417070730d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574417070730d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574417070730d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574417070730d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        },
+        {
+          "query_hex": "476574496e666f0d"
+        }
+      ]
+    },
+    {
+      "case": "positive131-ipv6",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBuster",
+        "version": "1.31",
+        "extrainfo": "honeypot",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "312e33312d312d31"
+        }
+      ]
+    },
+    {
+      "case": "negative170-ipv6",
+      "status": "pass",
+      "service": {
+        "name": "netbus",
+        "product": "NetBus trojan",
+        "version": "1.70",
+        "ostype": "Windows",
+        "method": "probed",
+        "conf": "10"
+      },
+      "version_script_count": 48,
+      "fixture_events": [
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b50726f6772616d20506174683a205a3a5c686f6d655c6c61625c6e65746275735c50617463682e6578657c526573746172742070657273697374656e743a205965737c4c6f67696e2049443a206c61627c436c69656e747320636f6e6e656374656420746f207468697320686f73743a20310d"
+        },
+        {
+          "query_hex": "6e627665720d476574496e666f0d"
+        },
+        {
+          "response_hex": "496e666f3b50726f6772616d20506174683a205a3a5c686f6d655c6c61625c6e65746275735c50617463682e6578657c526573746172742070657273697374656e743a205965737c4c6f67696e2049443a206c61627c436c69656e747320636f6e6e656374656420746f207468697320686f73743a20310d"
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "external_path_collision_reproduced": true,
+    "invalid-port": "rejected before scanning",
+    "option-target": "rejected before scanning",
+    "existing_output_preserved": true,
+    "incomplete_xml_rejected": true,
+    "action-error_rejected": true,
+    "action-timeout_rejected": true,
+    "installation_unchanged": true
+  },
+  "scope": "Fresh loopback CLI scans with the unfiltered installed NSE index; recorded responses and controlled failures",
+  "installed_fixture_sha256": {
+    "netbus-version.nse": "2eb48550994167c59e07feb3c43d12b188aee4947811a713155a6ba2b74d8531",
+    "script.db": "6a7436ab3613d493900e6bc22d64f12a8c4decb829627f288623b8bc0e82d4c2"
+  },
+  "scans": 9
+}

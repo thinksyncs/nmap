@@ -53,6 +53,50 @@ Generated runtime files and test results are local build products. Commit the
 source, setup instructions, and relevant review material rather than the
 contents of `.codex-cache/`.
 
+## Run the detector
+
+Use the working NSE through the scan command:
+
+```sh
+python3 tools/codex-cloud/scan.py -p 12345 192.0.2.10
+```
+
+Replace the documentation address with your test target. The command defaults
+to TCP port 12345. It also accepts comma-separated ports, ascending ranges,
+multiple targets, and `-6` for IPv6. Use `--nmap /path/to/nmap` to select another
+installed executable; otherwise it prefers the prepared Cloud runtime and then
+`nmap` from `PATH`.
+
+The command performs a TCP connect scan with service detection at intensity 7
+and selects `netbus-version` by name. It creates a temporary data overlay with
+the working NSE and an unchanged copy of the installed **full** `script.db`.
+Other scripts, libraries, and service probes are resolved through Nmap's usual
+data lookup. Selection output must confirm the candidate's path and SHA-256.
+The existing Nmap installation is left untouched and the overlay is removed
+after the process finishes.
+
+This also avoids a concrete external-script loading failure. With an older
+installed copy, `nmap -sV --script /another/path/netbus-version.nse` can load
+both files and abort with `duplicate script ID: 'netbus-version'`. `-sV`
+implicitly selects the version category. A different absolute path does not
+replace the installed entry; selecting the overlay copy by name does.
+
+Results are saved in a new directory under `.codex-cache/scans/`, or in the
+new directory supplied with `--output`. They include `report.json`, `scan.xml`,
+stdout/stderr logs, the exact command, runtime version, source hash, and the
+selected version-script inventory. A normal completion has exit code 0;
+invalid inputs, incomplete scans, and detector execution failures return
+nonzero. Existing result directories are never overwritten.
+
+The report's `status: pass` describes successful execution. Inspect each
+service's `product`, `version`, and `extrainfo` for the identification result.
+Absence of a NetBuster label is not evidence that a host is not a honeypot.
+The supported fingerprints and their limits are those of the working NSE;
+this command does not add new product fingerprints.
+
+The initial full-index, IPv4/IPv6, and detector-failure validation is retained
+in [`review/codex-cloud/scan-runner-20261117/`](../review/codex-cloud/scan-runner-20261117/README.md).
+
 ## Run tests against the working script
 
 Run the complete workflow:
@@ -67,6 +111,7 @@ Or select a suite while iterating:
 python3 tools/codex-cloud/test.py --suite contracts
 python3 tools/codex-cloud/test.py --suite replay
 python3 tools/codex-cloud/test.py --suite ordinary
+python3 tools/codex-cloud/test.py --suite integration
 python3 tools/codex-cloud/test.py --suite compare
 python3 tools/codex-cloud/test.py --suite review
 ```
@@ -78,6 +123,7 @@ Results are written under `.codex-cache/results/`.
 | `contracts` | Check deterministic behavior using the current working NSE script. | 169 contract cases |
 | `replay` | Force the working script to run against localhost response replays. | 20 replay cases |
 | `ordinary` | Check normal service-based selection and existing service metadata against localhost replays. | 24 scans: 12 scenarios for each of the 1.30 and 1.31 fixtures |
+| `integration` | Exercise the scan CLI with an older installed script and the full NSE index. | Seven IPv4 scans, two IPv6 scans when loopback is available, collision/error controls, and input/output handling |
 | `compare` | Run the retained comparison scenarios with the working script as the candidate. | 28 comparison scans |
 | `review` | Verify the frozen review archive with its own review harness. | Snapshot contracts, patches, and retained evidence; distinct from working-script validation |
 | `all` | Run each suite and retain the resulting records. | The groups above; overlapping snapshot checks are not additional unique live cases |
@@ -121,6 +167,14 @@ retaining the original service probes. This checks service-based selection,
 not interactions with the full installed NSE script collection. The wrapper
 requires the correct selection mode, candidate implementation, complete case
 inventory, source hash, and verified overlay before reporting a pass.
+
+The `integration` suite covers the separate user-facing scan command with the
+unfiltered installed script index. It reproduces the absolute-path collision
+before testing the overlay, checks complete Nmap XML and service metadata,
+and verifies that the installed script and database are unchanged. IPv6
+unavailability is reported explicitly rather than silently dropping those
+cases. Controlled faulty runners and NSE copies check that failures do not
+become successful scan reports.
 
 ## Frozen review material and historical measurements
 

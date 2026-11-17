@@ -177,6 +177,25 @@ def compare(bundle, candidate, candidate_sha, output, environment):
             "scope": "Fresh synthetic localhost scans; baseline is the retained local candidate, not PR #3570"}
 
 
+def integration(candidate_sha, output, environment):
+    folder = output / "integration"
+    run([sys.executable, ROOT / "tools/codex-cloud/test_scan.py", "--output", folder],
+        output, "integration", environment)
+    result = load(folder / "report.json")
+    require(result["status"] == "pass" and result["scans"] in (7, 9)
+            and all(case["status"] == "pass" for case in result["cases"]),
+            "Incomplete scan-CLI integration checks")
+    require(result["source_sha256"] == candidate_sha
+            and result["scan_runner_sha256"] == digest(ROOT / "tools/codex-cloud/scan.py"),
+            "Wrong scan-CLI source")
+    require(result["scans"] == 9 or "ipv6_skipped" in result, "IPv6 coverage silently omitted")
+    summary = {"status": "pass", "scans": result["scans"], "controls": result["controls"],
+               "scan_runner_sha256": result["scan_runner_sha256"], "scope": result["scope"]}
+    if "ipv6_skipped" in result:
+        summary["ipv6_skipped"] = result["ipv6_skipped"]
+    return summary
+
+
 def review(bundle, output, environment):
     folder = output / "frozen-review"
     run([sys.executable, bundle / "run_review.py", "--output", folder],
@@ -191,7 +210,7 @@ def review(bundle, output, environment):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--suite", choices=("contracts", "replay", "ordinary", "compare", "review", "all"),
+    parser.add_argument("--suite", choices=("contracts", "replay", "ordinary", "integration", "compare", "review", "all"),
                         default="contracts")
     parser.add_argument("--output", type=Path, help="New results directory (default: .codex-cache/results/<run>)")
     args = parser.parse_args()
@@ -217,7 +236,7 @@ def main():
     started = time.monotonic()
     try:
         required = {"lua", "luac"}
-        if args.suite in ("replay", "ordinary", "compare", "all"):
+        if args.suite in ("replay", "ordinary", "integration", "compare", "all"):
             required.add("nmap")
         for name in required:
             require(shutil.which(name, path=environment["PATH"]),
@@ -237,7 +256,7 @@ def main():
             report["nmap_version"] = run(["nmap", "--version"], output, "nmap-version", environment).strip()
         bundle = prepare_bundle()
         report["frozen_script_sha256"] = digest(bundle / "nse/netbus-version.nse")
-        selected = ("contracts", "replay", "ordinary", "compare", "review") if args.suite == "all" else (args.suite,)
+        selected = ("contracts", "replay", "ordinary", "integration", "compare", "review") if args.suite == "all" else (args.suite,)
         for suite in selected:
             print(f"Running {suite} ...", flush=True)
             if suite == "contracts":
@@ -245,6 +264,8 @@ def main():
             elif suite in ("replay", "ordinary"):
                 selection = "ordinary" if suite == "ordinary" else "forced"
                 result = replay(bundle, candidate, candidate_sha, output, environment, selection)
+            elif suite == "integration":
+                result = integration(candidate_sha, output, environment)
             elif suite == "compare":
                 result = compare(bundle, candidate, candidate_sha, output, environment)
             else:
