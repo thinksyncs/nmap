@@ -11,6 +11,8 @@ python3 tools/codex-cloud/test.py --suite all
 
 For a short edit/test cycle, use `--suite contracts`. Before reporting a NetBus
 change as verified, run the relevant replay and comparison suites as well.
+Use `--suite ordinary` to check real service-based script selection and
+preservation of existing NetBus metadata; `--suite all` includes this gate.
 The wrapper selects the current `scripts/netbus-version.nse`, including local
 edits. Its network tests use loopback fixture servers.
 

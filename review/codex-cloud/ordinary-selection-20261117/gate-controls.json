@@ -1,0 +1,103 @@
+{
+  "scope": "Deliberate incorrect candidate controls; successful validation means each mutation is detected as a failure. Localhost only.",
+  "original_script_sha256": "1dab4ae5605d6830daade00ea7fe859ec9f9276f8ea85c9c86bc83a59e38b130",
+  "harness_sha256": "7760cc711a9303fc1c36d866ac3387dda6549bf3c7a1c0664730d5184ea32233",
+  "source_unchanged": true,
+  "harness_unchanged": true,
+  "all_mutations_detected": true,
+  "controls": [
+    {
+      "name": "portrule-disabled",
+      "case": "real_positive",
+      "mutated_script_sha256": "0cb8d71f4b7447fd677acbc0f17ef12b7309e60880323b4b7c1741fba26efe61",
+      "command": [
+        "python3",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/review/c33688a0a5d0babf03bf3bb3ab0799e762a04e3d7e2e33c9fc7a2b85d5770f47/netbus-multiversion-review/tests/test_netbuster_detection.py",
+        "--script",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/results/ordinary-gate-controls-20261117/portrule-disabled/netbus-version.nse",
+        "--selection",
+        "ordinary",
+        "--implementation",
+        "candidate",
+        "--output",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/results/ordinary-gate-controls-20261117/portrule-disabled/replay",
+        "--cases",
+        "real_positive"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.311,
+      "report_status": "fail",
+      "selection": "ordinary",
+      "implementation": "candidate",
+      "overlay_script_verified": true,
+      "script_sha256": "0cb8d71f4b7447fd677acbc0f17ef12b7309e60880323b4b7c1741fba26efe61",
+      "case_results": [
+        {
+          "case": "real_positive",
+          "status": "fail",
+          "failures": [
+            "NSE did not starting",
+            "NSE did not finished",
+            "Unexpected query connection count",
+            "Positive metadata differs: ['netbus', 'NetBus trojan', '1.60', None]"
+          ],
+          "service": {
+            "name": "netbus",
+            "product": "NetBus trojan",
+            "version": "1.60",
+            "ostype": "Windows",
+            "method": "probed",
+            "conf": "10"
+          },
+          "query_connection_count": 0
+        }
+      ],
+      "mutation_detected": true
+    },
+    {
+      "name": "negative-relabeled",
+      "case": "real_negative",
+      "mutated_script_sha256": "3f047f1406c176d49b25ef8a0c39ddb46dbf1ed50d06039968721a55fa24fcaf",
+      "command": [
+        "python3",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/review/c33688a0a5d0babf03bf3bb3ab0799e762a04e3d7e2e33c9fc7a2b85d5770f47/netbus-multiversion-review/tests/test_netbuster_detection.py",
+        "--script",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/results/ordinary-gate-controls-20261117/negative-relabeled/netbus-version.nse",
+        "--selection",
+        "ordinary",
+        "--implementation",
+        "candidate",
+        "--output",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/results/ordinary-gate-controls-20261117/negative-relabeled/replay",
+        "--cases",
+        "real_negative"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.315,
+      "report_status": "fail",
+      "selection": "ordinary",
+      "implementation": "candidate",
+      "overlay_script_verified": true,
+      "script_sha256": "3f047f1406c176d49b25ef8a0c39ddb46dbf1ed50d06039968721a55fa24fcaf",
+      "case_results": [
+        {
+          "case": "real_negative",
+          "status": "fail",
+          "failures": [
+            "Negative metadata changed: ['netbus', 'NetBuster', None, 'honeypot']"
+          ],
+          "service": {
+            "name": "netbus",
+            "product": "NetBuster",
+            "extrainfo": "honeypot",
+            "ostype": "Windows",
+            "method": "probed",
+            "conf": "10"
+          },
+          "query_connection_count": 2
+        }
+      ],
+      "mutation_detected": true
+    }
+  ]
+}

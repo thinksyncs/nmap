@@ -66,6 +66,7 @@ Or select a suite while iterating:
 ```sh
 python3 tools/codex-cloud/test.py --suite contracts
 python3 tools/codex-cloud/test.py --suite replay
+python3 tools/codex-cloud/test.py --suite ordinary
 python3 tools/codex-cloud/test.py --suite compare
 python3 tools/codex-cloud/test.py --suite review
 ```
@@ -75,7 +76,8 @@ Results are written under `.codex-cache/results/`.
 | Suite | Purpose | Expected coverage from the retained cases |
 | --- | --- | --- |
 | `contracts` | Check deterministic behavior using the current working NSE script. | 169 contract cases |
-| `replay` | Exercise the working script against localhost response replays. | 20 replay cases |
+| `replay` | Force the working script to run against localhost response replays. | 20 replay cases |
+| `ordinary` | Check normal service-based selection and existing service metadata against localhost replays. | 24 scans: 12 scenarios for each of the 1.30 and 1.31 fixtures |
 | `compare` | Run the retained comparison scenarios with the working script as the candidate. | 28 comparison scans |
 | `review` | Verify the frozen review archive with its own review harness. | Snapshot contracts, patches, and retained evidence; distinct from working-script validation |
 | `all` | Run each suite and retain the resulting records. | The groups above; overlapping snapshot checks are not additional unique live cases |
@@ -86,12 +88,39 @@ each run. A changed test inventory should be reflected in the reported counts.
 
 The migration verification is retained in
 [`review/codex-cloud/`](../review/codex-cloud/README.md).
+The later ordinary-selection gate and full-suite run are recorded in
+[`review/codex-cloud/ordinary-selection-20261117/`](../review/codex-cloud/ordinary-selection-20261117/README.md).
 
 The live suites explicitly select the repository's working
 `scripts/netbus-version.nse` by path. This matters after an edit: an installed
 Nmap copy or a script bundled in an archive must not silently replace the code
 under development. The Nmap engine is built from committed source; the live
 NSE target is the working file, including uncommitted edits to that file.
+
+### Ordinary service selection
+
+The `ordinary` suite runs `-sV --script netbus-version` without the `+` prefix
+that forces a script's port rule to match. The contract harness mocks the port
+rule, and forced replays bypass it, so this suite checks a separate integration
+boundary: the real Nmap engine must identify the NetBus service and select the
+working NSE before the script can classify the response.
+
+Each fixture group includes supported-version and segmented positives, the
+versionless default Info fingerprint, real NetBus and password-denied controls,
+an unsupported version, malformed response bytes, EOF, timeouts, and altered
+or incomplete Info records. Negative cases must retain Nmap's existing service
+name, product, and version; simply omitting a honeypot label is insufficient.
+There are six expected positive results and 18 negative results across the
+24 scans. Shared controls, including the versionless Info cases, run in both
+fixture groups; these are not 24 distinct implementations or application runs.
+
+The harness copies the working script into a temporary data directory and
+verifies its path and SHA-256 using Nmap's script selection output. It indexes
+only `netbus-version` to isolate this script from other version scripts while
+retaining the original service probes. This checks service-based selection,
+not interactions with the full installed NSE script collection. The wrapper
+requires the correct selection mode, candidate implementation, complete case
+inventory, source hash, and verified overlay before reporting a pass.
 
 ## Frozen review material and historical measurements
 

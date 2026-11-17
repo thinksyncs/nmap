@@ -26,6 +26,11 @@ REPLAY_CASES = [
     "info112_altered", "response_eof_7", "response_timeout_0",
     "late1500_version_refused", "apps_requery", "apps_only",
 ]
+ORDINARY_CASES = [
+    "real_positive", "real_negative", "negative_denied", "split_7",
+    "response_eof_7", "response_timeout_0", "malformed_status", "other_version",
+    "info112_real", "info112_altered", "info112_eof_55", "info112_timeout_55",
+]
 COMPARISON_CASES = [
     "retry_coalescing:1.30", "retry_coalescing:1.31",
     "retry_coalescing_refuse:1.30", "retry_coalescing_refuse:1.31",
@@ -114,25 +119,44 @@ def contracts(bundle, candidate, output, environment):
     return {"status": "pass", "total": result["total"], "failed": result["failed"]}
 
 
-def replay(bundle, candidate, candidate_sha, output, environment):
+def replay(bundle, candidate, candidate_sha, output, environment, selection="forced"):
+    cases = ORDINARY_CASES if selection == "ordinary" else REPLAY_CASES
+    label = "ordinary" if selection == "ordinary" else "replay"
     counts = {}
+    positives = negatives = 0
     for version in ("1.30", "1.31"):
-        folder = output / ("replay-" + version)
+        name = label + "-" + version
+        folder = output / name
         command = [sys.executable, bundle / "tests/test_netbuster_detection.py",
-                   "--script", candidate, "--selection", "forced", "--output", folder,
-                   "--cases", *REPLAY_CASES]
+                   "--script", candidate, "--selection", selection, "--output", folder,
+                   "--implementation", "candidate", "--cases", *cases]
         if version == "1.30":
             command += ["--positive-fixture", bundle / "tests/fixtures/real/netbuster/combined-130-default.json"]
-        run(command, output, "replay-" + version, environment)
+        run(command, output, name, environment)
         result = load(folder / "report.json")
         require(result["status"] == "pass" and result["failed_cases"] == 0
-                and [case["case"] for case in result["cases"]] == REPLAY_CASES,
-                f"Incomplete live replay for {version}")
+                and [case["case"] for case in result["cases"]] == cases
+                and all(case["status"] == "pass" for case in result["cases"]),
+                f"Incomplete live {label} replay for {version}")
         require(result["script_sha256"] == candidate_sha
+                and Path(result["script"]).resolve() == candidate.resolve()
                 and result["positive_recorded_version"] == version, "Wrong replay source or fixture")
+        require(result["selection"] == selection and result["implementation"] == "candidate",
+                "Wrong replay selection or implementation")
+        if selection == "ordinary":
+            require(result.get("overlay_script_verified") is True,
+                    "Ordinary selection did not verify the working-script overlay")
         counts[version] = len(result["cases"])
-    return {"status": "pass", "cases": counts, "total": sum(counts.values()),
-            "scope": "Fresh Nmap scans of saved-response replay servers on 127.0.0.1"}
+        positives += sum(case["expected_signal"] is True for case in result["cases"])
+        negatives += sum(case["expected_signal"] is False for case in result["cases"])
+    summary = {"status": "pass", "selection": selection, "cases": counts,
+               "total": sum(counts.values()), "positive_cases": positives, "negative_cases": negatives,
+               "scope": "Fresh Nmap scans of saved-response replay servers on 127.0.0.1"}
+    if selection == "ordinary":
+        summary["overlay_script_verified"] = True
+        summary["scope"] = ("Service-based selection with -sV and only netbus-version indexed; "
+                            "original service probes retained; negative service metadata checked")
+    return summary
 
 
 def compare(bundle, candidate, candidate_sha, output, environment):
@@ -167,7 +191,7 @@ def review(bundle, output, environment):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--suite", choices=("contracts", "replay", "compare", "review", "all"),
+    parser.add_argument("--suite", choices=("contracts", "replay", "ordinary", "compare", "review", "all"),
                         default="contracts")
     parser.add_argument("--output", type=Path, help="New results directory (default: .codex-cache/results/<run>)")
     args = parser.parse_args()
@@ -193,7 +217,7 @@ def main():
     started = time.monotonic()
     try:
         required = {"lua", "luac"}
-        if args.suite in ("replay", "compare", "all"):
+        if args.suite in ("replay", "ordinary", "compare", "all"):
             required.add("nmap")
         for name in required:
             require(shutil.which(name, path=environment["PATH"]),
@@ -213,13 +237,14 @@ def main():
             report["nmap_version"] = run(["nmap", "--version"], output, "nmap-version", environment).strip()
         bundle = prepare_bundle()
         report["frozen_script_sha256"] = digest(bundle / "nse/netbus-version.nse")
-        selected = ("contracts", "replay", "compare", "review") if args.suite == "all" else (args.suite,)
+        selected = ("contracts", "replay", "ordinary", "compare", "review") if args.suite == "all" else (args.suite,)
         for suite in selected:
             print(f"Running {suite} ...", flush=True)
             if suite == "contracts":
                 result = contracts(bundle, candidate, output, environment)
-            elif suite == "replay":
-                result = replay(bundle, candidate, candidate_sha, output, environment)
+            elif suite in ("replay", "ordinary"):
+                selection = "ordinary" if suite == "ordinary" else "forced"
+                result = replay(bundle, candidate, candidate_sha, output, environment, selection)
             elif suite == "compare":
                 result = compare(bundle, candidate, candidate_sha, output, environment)
             else:
