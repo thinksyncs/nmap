@@ -176,6 +176,12 @@ unavailability is reported explicitly rather than silently dropping those
 cases. Controlled faulty runners and NSE copies check that failures do not
 become successful scan reports.
 
+The integration summary checks the names, counts, and outcomes of all required
+cases and the eight controls. Seven IPv4 cases are required on every run. A run
+must also record both IPv6 cases or give a reason for skipping IPv6. To run
+the report regression tests offline, use
+`python3 tools/codex-cloud/test_integration_report.py`.
+
 ## Frozen review material and historical measurements
 
 The retained materials are in

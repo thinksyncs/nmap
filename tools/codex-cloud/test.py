@@ -179,16 +179,40 @@ def compare(bundle, candidate, candidate_sha, output, environment):
 
 def integration(candidate_sha, output, environment):
     folder = output / "integration"
+    run([sys.executable, ROOT / "tools/codex-cloud/test_integration_report.py"],
+        output, "integration-report-tests", environment)
     run([sys.executable, ROOT / "tools/codex-cloud/test_scan.py", "--output", folder],
         output, "integration", environment)
-    result = load(folder / "report.json")
-    require(result["status"] == "pass" and result["scans"] in (7, 9)
-            and all(case["status"] == "pass" for case in result["cases"]),
-            "Incomplete scan-CLI integration checks")
+    return summarize_integration(load(folder / "report.json"), candidate_sha)
+
+
+def summarize_integration(result, candidate_sha):
+    require(result["status"] == "pass", "Scan-CLI integration checks failed")
     require(result["source_sha256"] == candidate_sha
             and result["scan_runner_sha256"] == digest(ROOT / "tools/codex-cloud/scan.py"),
             "Wrong scan-CLI source")
-    require(result["scans"] == 9 or "ipv6_skipped" in result, "IPv6 coverage silently omitted")
+
+    expected = {name + "-ipv4" for name in
+                ("positive130", "positive131", "info112", "negative170", "denied", "eof7", "timeout")}
+    if "ipv6_skipped" in result:
+        reason = result["ipv6_skipped"]
+        require(isinstance(reason, str) and reason.strip(), "Missing IPv6 skip reason")
+    else:
+        expected.update(("positive131-ipv6", "negative170-ipv6"))
+    cases = result["cases"]
+    require(len(cases) == result["scans"] == len(expected)
+            and {case["case"] for case in cases} == expected,
+            "Scan-CLI case inventory does not match the required cases")
+    require(all(case["status"] == "pass" for case in cases), "Scan-CLI case failed")
+
+    controls = result["controls"]
+    for name in ("external_path_collision_reproduced", "existing_output_preserved",
+                 "incomplete_xml_rejected", "action-error_rejected", "action-timeout_rejected",
+                 "installation_unchanged"):
+        require(controls.get(name) is True, f"Missing or failed scan-CLI control: {name}")
+    for name in ("invalid-port", "option-target"):
+        require(controls.get(name) == "rejected before scanning", f"Missing or failed scan-CLI control: {name}")
+
     summary = {"status": "pass", "scans": result["scans"], "controls": result["controls"],
                "scan_runner_sha256": result["scan_runner_sha256"], "scope": result["scope"]}
     if "ipv6_skipped" in result:
