@@ -1,0 +1,1009 @@
+{
+  "schema_version": 1,
+  "purpose": "frozen_baseline_reproduction_only",
+  "started_at": "2026-11-21T12:56:11.095309+00:00",
+  "reproduction_status": "pass",
+  "production_readiness": "not_established",
+  "deterrence": "not_tested",
+  "cases": [
+    {
+      "name": "off-before",
+      "profile": "normal",
+      "command": [
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/nmap",
+        "--datadir",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap",
+        "--unprivileged",
+        "-sT",
+        "-Pn",
+        "-n",
+        "-sV",
+        "--version-intensity",
+        "7",
+        "--version-trace",
+        "-d1",
+        "-p",
+        "8081",
+        "-oA",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/camouflage-baseline-20261121/off-label-control/off-before/scan",
+        "127.0.0.1"
+      ],
+      "target": "127.0.0.1",
+      "port": 8081,
+      "status": "pass",
+      "application_before": {
+        "root": {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "RXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "request_base64": "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KRXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\nExample application is running.\n"
+        },
+        "health": {
+          "method": "GET",
+          "path": "/health",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "3"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "b2sK",
+          "request_base64": "R0VUIC9oZWFsdGggSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQpvawo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 3\r\nConnection: close\r\n\r\nok\n"
+        },
+        "head": {
+          "method": "HEAD",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "SEVBRCAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\n"
+        },
+        "missing": {
+          "method": "GET",
+          "path": "/missing",
+          "status": 404,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "10"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "bm90IGZvdW5kCg==",
+          "request_base64": "R0VUIC9taXNzaW5nIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04DQpDb250ZW50LUxlbmd0aDogMTANCkNvbm5lY3Rpb246IGNsb3NlDQoNCm5vdCBmb3VuZAo=",
+          "response_text": "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 10\r\nConnection: close\r\n\r\nnot found\n"
+        },
+        "options": {
+          "method": "OPTIONS",
+          "path": "/",
+          "status": 204,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Allow",
+              "GET, HEAD, OPTIONS"
+            ],
+            [
+              "Content-Length",
+              "0"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "T1BUSU9OUyAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjA0IE5vIENvbnRlbnQNCkFsbG93OiBHRVQsIEhFQUQsIE9QVElPTlMNCkNvbnRlbnQtTGVuZ3RoOiAwDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQo=",
+          "response_text": "HTTP/1.1 204 No Content\r\nAllow: GET, HEAD, OPTIONS\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        }
+      },
+      "exit_code": 0,
+      "application_after": {
+        "root": {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "RXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "request_base64": "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KRXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\nExample application is running.\n"
+        },
+        "health": {
+          "method": "GET",
+          "path": "/health",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "3"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "b2sK",
+          "request_base64": "R0VUIC9oZWFsdGggSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQpvawo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 3\r\nConnection: close\r\n\r\nok\n"
+        },
+        "head": {
+          "method": "HEAD",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "SEVBRCAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\n"
+        },
+        "missing": {
+          "method": "GET",
+          "path": "/missing",
+          "status": 404,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "10"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "bm90IGZvdW5kCg==",
+          "request_base64": "R0VUIC9taXNzaW5nIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04DQpDb250ZW50LUxlbmd0aDogMTANCkNvbm5lY3Rpb246IGNsb3NlDQoNCm5vdCBmb3VuZAo=",
+          "response_text": "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 10\r\nConnection: close\r\n\r\nnot found\n"
+        },
+        "options": {
+          "method": "OPTIONS",
+          "path": "/",
+          "status": 204,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Allow",
+              "GET, HEAD, OPTIONS"
+            ],
+            [
+              "Content-Length",
+              "0"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "T1BUSU9OUyAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjA0IE5vIENvbnRlbnQNCkFsbG93OiBHRVQsIEhFQUQsIE9QVElPTlMNCkNvbnRlbnQtTGVuZ3RoOiAwDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQo=",
+          "response_text": "HTTP/1.1 204 No Content\r\nAllow: GET, HEAD, OPTIONS\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        }
+      },
+      "application_stable": true,
+      "service": {
+        "name": "blackice-icecap",
+        "servicefp": "SF-Port8081-TCP:V=7.992SVN%I=7%D=11/21%Time=6B0194F1%P=x86_64-unknown-linux-gnu%r(GetRequest,83,\"HTTP/1\\.1\\x20200\\x20OK\\r\\nContent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nContent-Length:\\x2032\\r\\nConnection:\\x20close\\r\\n\\r\\nExample\\x20application\\x20is\\x20running\\.\\n\")%r(FourOhFourRequest,74,\"HTTP/1\\.1\\x20404\\x20Not\\x20Found\\r\\nContent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nContent-Length:\\x2010\\r\\nConnection:\\x20close\\r\\n\\r\\nnot\\x20found\\n\")%r(HTTPOptions,5C,\"HTTP/1\\.1\\x20204\\x20No\\x20Content\\r\\nAllow:\\x20GET,\\x20HEAD,\\x20OPTIONS\\r\\nContent-Length:\\x200\\r\\nConnection:\\x20close\\r\\n\\r\\n\");",
+        "method": "table",
+        "conf": "3"
+      },
+      "service_identity": {
+        "name": "blackice-icecap",
+        "method": "table",
+        "conf": "3"
+      },
+      "service_result_kind": "port_table_fallback_not_product_identification",
+      "nse_execution_errors": [],
+      "sent_probes": [
+        "Service scan sending probe NULL to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe GetRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe FourOhFourRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SIPOptions to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe WWWOFFLEctrlstat to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe GenericLines to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe HTTPOptions to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe RTSPRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe RPCCheck to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe DNSVersionBindReqTCP to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe DNSStatusRequestTCP to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe Help to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SSLSessionReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe TerminalServerCookie to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe TLSSessionReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe Kerberos to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SMBProgNeg to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe X11Probe to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LPDString to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LDAPSearchReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LDAPBindReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LANDesk-RC to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe TerminalServer to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe NCP to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe NotesRPC to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe JavaRMI to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe WMSRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe oracle-tns to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe ms-sql-s to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe afp to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe giop to 127.0.0.1:8081 (tcp)"
+      ],
+      "hard_matches": [],
+      "soft_matches": [],
+      "elapsed_seconds": 6.841
+    },
+    {
+      "name": "on",
+      "profile": "dionaea-legacy",
+      "command": [
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/nmap",
+        "--datadir",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap",
+        "--unprivileged",
+        "-sT",
+        "-Pn",
+        "-n",
+        "-sV",
+        "--version-intensity",
+        "7",
+        "--version-trace",
+        "-d1",
+        "-p",
+        "8081",
+        "-oA",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/camouflage-baseline-20261121/off-label-control/on/scan",
+        "127.0.0.1"
+      ],
+      "target": "127.0.0.1",
+      "port": 8081,
+      "status": "pass",
+      "application_before": {
+        "root": {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "RXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "request_base64": "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KRXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\nExample application is running.\n"
+        },
+        "health": {
+          "method": "GET",
+          "path": "/health",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "3"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "b2sK",
+          "request_base64": "R0VUIC9oZWFsdGggSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQpvawo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 3\r\nConnection: close\r\n\r\nok\n"
+        },
+        "head": {
+          "method": "HEAD",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "SEVBRCAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\n"
+        },
+        "missing": {
+          "method": "GET",
+          "path": "/missing",
+          "status": 404,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "10"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "bm90IGZvdW5kCg==",
+          "request_base64": "R0VUIC9taXNzaW5nIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04DQpDb250ZW50LUxlbmd0aDogMTANCkNvbm5lY3Rpb246IGNsb3NlDQoNCm5vdCBmb3VuZAo=",
+          "response_text": "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 10\r\nConnection: close\r\n\r\nnot found\n"
+        },
+        "options": {
+          "method": "OPTIONS",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.0",
+          "headers": [
+            [
+              "Allow",
+              "OPTIONS, GET, HEAD, POST"
+            ],
+            [
+              "Content-Length",
+              "0"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "T1BUSU9OUyAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjAgMjAwIE9LDQpBbGxvdzogT1BUSU9OUywgR0VULCBIRUFELCBQT1NUDQpDb250ZW50LUxlbmd0aDogMA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.0 200 OK\r\nAllow: OPTIONS, GET, HEAD, POST\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        }
+      },
+      "exit_code": 0,
+      "application_after": {
+        "root": {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "RXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "request_base64": "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KRXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\nExample application is running.\n"
+        },
+        "health": {
+          "method": "GET",
+          "path": "/health",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "3"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "b2sK",
+          "request_base64": "R0VUIC9oZWFsdGggSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQpvawo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 3\r\nConnection: close\r\n\r\nok\n"
+        },
+        "head": {
+          "method": "HEAD",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "SEVBRCAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\n"
+        },
+        "missing": {
+          "method": "GET",
+          "path": "/missing",
+          "status": 404,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "10"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "bm90IGZvdW5kCg==",
+          "request_base64": "R0VUIC9taXNzaW5nIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04DQpDb250ZW50LUxlbmd0aDogMTANCkNvbm5lY3Rpb246IGNsb3NlDQoNCm5vdCBmb3VuZAo=",
+          "response_text": "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 10\r\nConnection: close\r\n\r\nnot found\n"
+        },
+        "options": {
+          "method": "OPTIONS",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.0",
+          "headers": [
+            [
+              "Allow",
+              "OPTIONS, GET, HEAD, POST"
+            ],
+            [
+              "Content-Length",
+              "0"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "T1BUSU9OUyAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjAgMjAwIE9LDQpBbGxvdzogT1BUSU9OUywgR0VULCBIRUFELCBQT1NUDQpDb250ZW50LUxlbmd0aDogMA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.0 200 OK\r\nAllow: OPTIONS, GET, HEAD, POST\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        }
+      },
+      "application_stable": true,
+      "service": {
+        "name": "honeypot",
+        "product": "Dionaea Honeypot httpd",
+        "method": "probed",
+        "conf": "10"
+      },
+      "service_identity": {
+        "name": "honeypot",
+        "product": "Dionaea Honeypot httpd",
+        "method": "probed",
+        "conf": "10"
+      },
+      "service_result_kind": "fingerprint_match",
+      "nse_execution_errors": [],
+      "sent_probes": [
+        "Service scan sending probe NULL to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe GetRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe FourOhFourRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SIPOptions to 127.0.0.1:8081 (tcp)"
+      ],
+      "hard_matches": [
+        "Service scan hard match (Probe SIPOptions matched with SIPOptions line 14858): 127.0.0.1:8081 is honeypot.  Version: |Dionaea Honeypot httpd|||"
+      ],
+      "soft_matches": [],
+      "elapsed_seconds": 6.841
+    },
+    {
+      "name": "off-after",
+      "profile": "normal",
+      "command": [
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/nmap",
+        "--datadir",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap",
+        "--unprivileged",
+        "-sT",
+        "-Pn",
+        "-n",
+        "-sV",
+        "--version-intensity",
+        "7",
+        "--version-trace",
+        "-d1",
+        "-p",
+        "8081",
+        "-oA",
+        "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/camouflage-baseline-20261121/off-label-control/off-after/scan",
+        "127.0.0.1"
+      ],
+      "target": "127.0.0.1",
+      "port": 8081,
+      "status": "pass",
+      "application_before": {
+        "root": {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "RXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "request_base64": "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KRXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\nExample application is running.\n"
+        },
+        "health": {
+          "method": "GET",
+          "path": "/health",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "3"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "b2sK",
+          "request_base64": "R0VUIC9oZWFsdGggSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQpvawo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 3\r\nConnection: close\r\n\r\nok\n"
+        },
+        "head": {
+          "method": "HEAD",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "SEVBRCAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\n"
+        },
+        "missing": {
+          "method": "GET",
+          "path": "/missing",
+          "status": 404,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "10"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "bm90IGZvdW5kCg==",
+          "request_base64": "R0VUIC9taXNzaW5nIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04DQpDb250ZW50LUxlbmd0aDogMTANCkNvbm5lY3Rpb246IGNsb3NlDQoNCm5vdCBmb3VuZAo=",
+          "response_text": "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 10\r\nConnection: close\r\n\r\nnot found\n"
+        },
+        "options": {
+          "method": "OPTIONS",
+          "path": "/",
+          "status": 204,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Allow",
+              "GET, HEAD, OPTIONS"
+            ],
+            [
+              "Content-Length",
+              "0"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "T1BUSU9OUyAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjA0IE5vIENvbnRlbnQNCkFsbG93OiBHRVQsIEhFQUQsIE9QVElPTlMNCkNvbnRlbnQtTGVuZ3RoOiAwDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQo=",
+          "response_text": "HTTP/1.1 204 No Content\r\nAllow: GET, HEAD, OPTIONS\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        }
+      },
+      "exit_code": 0,
+      "application_after": {
+        "root": {
+          "method": "GET",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "RXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "request_base64": "R0VUIC8gSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0KRXhhbXBsZSBhcHBsaWNhdGlvbiBpcyBydW5uaW5nLgo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\nExample application is running.\n"
+        },
+        "health": {
+          "method": "GET",
+          "path": "/health",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "3"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "b2sK",
+          "request_base64": "R0VUIC9oZWFsdGggSFRUUC8xLjENCkhvc3Q6IGxvY2FsaG9zdA0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQpvawo=",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 3\r\nConnection: close\r\n\r\nok\n"
+        },
+        "head": {
+          "method": "HEAD",
+          "path": "/",
+          "status": 200,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "32"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "SEVBRCAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9dXRmLTgNCkNvbnRlbnQtTGVuZ3RoOiAzMg0KQ29ubmVjdGlvbjogY2xvc2UNCg0K",
+          "response_text": "HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 32\r\nConnection: close\r\n\r\n"
+        },
+        "missing": {
+          "method": "GET",
+          "path": "/missing",
+          "status": 404,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Content-Type",
+              "text/plain; charset=utf-8"
+            ],
+            [
+              "Content-Length",
+              "10"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "bm90IGZvdW5kCg==",
+          "request_base64": "R0VUIC9taXNzaW5nIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0PXV0Zi04DQpDb250ZW50LUxlbmd0aDogMTANCkNvbm5lY3Rpb246IGNsb3NlDQoNCm5vdCBmb3VuZAo=",
+          "response_text": "HTTP/1.1 404 Not Found\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 10\r\nConnection: close\r\n\r\nnot found\n"
+        },
+        "options": {
+          "method": "OPTIONS",
+          "path": "/",
+          "status": 204,
+          "http_version": "1.1",
+          "headers": [
+            [
+              "Allow",
+              "GET, HEAD, OPTIONS"
+            ],
+            [
+              "Content-Length",
+              "0"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "body_base64": "",
+          "request_base64": "T1BUSU9OUyAvIEhUVFAvMS4xDQpIb3N0OiBsb2NhbGhvc3QNCkNvbm5lY3Rpb246IGNsb3NlDQoNCg==",
+          "response_base64": "SFRUUC8xLjEgMjA0IE5vIENvbnRlbnQNCkFsbG93OiBHRVQsIEhFQUQsIE9QVElPTlMNCkNvbnRlbnQtTGVuZ3RoOiAwDQpDb25uZWN0aW9uOiBjbG9zZQ0KDQo=",
+          "response_text": "HTTP/1.1 204 No Content\r\nAllow: GET, HEAD, OPTIONS\r\nContent-Length: 0\r\nConnection: close\r\n\r\n"
+        }
+      },
+      "application_stable": true,
+      "service": {
+        "name": "blackice-icecap",
+        "servicefp": "SF-Port8081-TCP:V=7.992SVN%I=7%D=11/21%Time=6B0194FF%P=x86_64-unknown-linux-gnu%r(GetRequest,83,\"HTTP/1\\.1\\x20200\\x20OK\\r\\nContent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nContent-Length:\\x2032\\r\\nConnection:\\x20close\\r\\n\\r\\nExample\\x20application\\x20is\\x20running\\.\\n\")%r(FourOhFourRequest,74,\"HTTP/1\\.1\\x20404\\x20Not\\x20Found\\r\\nContent-Type:\\x20text/plain;\\x20charset=utf-8\\r\\nContent-Length:\\x2010\\r\\nConnection:\\x20close\\r\\n\\r\\nnot\\x20found\\n\")%r(HTTPOptions,5C,\"HTTP/1\\.1\\x20204\\x20No\\x20Content\\r\\nAllow:\\x20GET,\\x20HEAD,\\x20OPTIONS\\r\\nContent-Length:\\x200\\r\\nConnection:\\x20close\\r\\n\\r\\n\");",
+        "method": "table",
+        "conf": "3"
+      },
+      "service_identity": {
+        "name": "blackice-icecap",
+        "method": "table",
+        "conf": "3"
+      },
+      "service_result_kind": "port_table_fallback_not_product_identification",
+      "nse_execution_errors": [],
+      "sent_probes": [
+        "Service scan sending probe NULL to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe GetRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe FourOhFourRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SIPOptions to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe WWWOFFLEctrlstat to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe GenericLines to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe HTTPOptions to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe RTSPRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe RPCCheck to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe DNSVersionBindReqTCP to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe DNSStatusRequestTCP to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe Help to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SSLSessionReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe TerminalServerCookie to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe TLSSessionReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe Kerberos to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe SMBProgNeg to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe X11Probe to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LPDString to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LDAPSearchReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LDAPBindReq to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe LANDesk-RC to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe TerminalServer to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe NCP to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe NotesRPC to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe JavaRMI to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe WMSRequest to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe oracle-tns to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe ms-sql-s to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe afp to 127.0.0.1:8081 (tcp)",
+        "Service scan sending probe giop to 127.0.0.1:8081 (tcp)"
+      ],
+      "hard_matches": [],
+      "soft_matches": [],
+      "elapsed_seconds": 6.803
+    }
+  ],
+  "environment": {
+    "NMAPDIR": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap",
+    "TZ": "UTC"
+  },
+  "hashes_before": {
+    "nmap": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/nmap",
+      "sha256": "5cebac67aafcdc11f662c4fd82285da8c4bb368a31d3b5062f26c8023bfa171b"
+    },
+    "probe_database": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap/nmap-service-probes",
+      "sha256": "57cc029b3610a55124e35bf1cb4830010ecf19d678298bafbee2ed8482bb4239"
+    },
+    "script_index": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap/scripts/script.db",
+      "sha256": "6a7436ab3613d493900e6bc22d64f12a8c4decb829627f288623b8bc0e82d4c2"
+    },
+    "source_archive": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/recovered-signals-20261121/honeypot-signals-v0.1.0.zip",
+      "sha256": "a9a6d80faf6fc4093175ae9432b2ce74e1da031adbd251a6c778c1476fcd02f4"
+    },
+    "fixture": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/camouflage-baseline-20261121/off-label-control/source/honeypot-signals/examples/camouflage_lab.py",
+      "sha256": "dfb695260ca1ce22716a4a6f33dc7908daa9fabc9759effd9b7d0e2b9834ccfa"
+    }
+  },
+  "nmap_version": "Nmap version 7.992SVN ( https://nmap.org )\nPlatform: x86_64-unknown-linux-gnu\nCompiled with: nmap-liblua-5.4.9 nmap-libz-1.3.2 nmap-libpcre2-10.49 nmap-libpcap-(64-bit nmap-libdnet-1.18.2 ipv6\nCompiled without: openssl libssh2\nAvailable nsock engines: epoll poll select\n",
+  "hashes_after": {
+    "nmap": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/nmap",
+      "sha256": "5cebac67aafcdc11f662c4fd82285da8c4bb368a31d3b5062f26c8023bfa171b"
+    },
+    "probe_database": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap/nmap-service-probes",
+      "sha256": "57cc029b3610a55124e35bf1cb4830010ecf19d678298bafbee2ed8482bb4239"
+    },
+    "script_index": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap/scripts/script.db",
+      "sha256": "6a7436ab3613d493900e6bc22d64f12a8c4decb829627f288623b8bc0e82d4c2"
+    },
+    "source_archive": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/recovered-signals-20261121/honeypot-signals-v0.1.0.zip",
+      "sha256": "a9a6d80faf6fc4093175ae9432b2ce74e1da031adbd251a6c778c1476fcd02f4"
+    },
+    "fixture": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/camouflage-baseline-20261121/off-label-control/source/honeypot-signals/examples/camouflage_lab.py",
+      "sha256": "dfb695260ca1ce22716a4a6f33dc7908daa9fabc9759effd9b7d0e2b9834ccfa"
+    }
+  },
+  "inputs_unchanged": true,
+  "disable_restores_baseline": true,
+  "off_on_http_compatibility": {
+    "status": "fail",
+    "differing_requests": [
+      "options"
+    ],
+    "scope": "GET /, GET /health, HEAD /, GET /missing, HTTP OPTIONS /",
+    "known_limitation": "The legacy profile changes valid HTTP OPTIONS as well as SIPOptions; authentication, stateful writes, CORS and production frontends are not covered."
+  },
+  "finished_at": "2026-11-21T12:56:31.618990+00:00"
+}

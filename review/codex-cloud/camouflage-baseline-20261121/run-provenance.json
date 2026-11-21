@@ -1,0 +1,30 @@
+{
+  "kind": "post_run_provenance",
+  "recorded_at": "2026-11-21T12:57:25.721646+00:00",
+  "harness": {
+    "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/tools/codex-cloud/test_camouflage.py",
+    "sha256": "d3a4499bb8f555066548db0aa25d0459007b99da26ed480c995000087db61313",
+    "mtime_utc": "2026-11-21T12:56:10.615124+00:00"
+  },
+  "python": {
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "implementation": "CPython"
+  },
+  "invocation": [
+    "python3",
+    "-B",
+    "tools/codex-cloud/test_camouflage.py",
+    "--archive",
+    ".codex-cache/recovered-signals-20261121/honeypot-signals-v0.1.0.zip",
+    "--output",
+    ".codex-cache/camouflage-baseline-20261121/off-label-control"
+  ],
+  "run_started_at": "2026-11-21T12:56:11.095309+00:00",
+  "run_finished_at": "2026-11-21T12:56:31.618990+00:00",
+  "scope": "The harness digest was recorded after the successful run. No harness edits were made between that run invocation and this receipt. Raw scan evidence and summary remain unchanged.",
+  "prior_attempt": {
+    "summary": "../summary.json",
+    "reason": "The initial harness incorrectly required the OFF target to have a probed HTTP identification. Both OFF scans completed but used a port-table fallback. The harness was corrected to distinguish a completed no-honeypot-label result from a missing/failed scan, and this independent fresh run was then executed."
+  }
+}

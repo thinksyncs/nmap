@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-21",
+  "purpose": "recovered_camouflage_baseline_with_paired_control",
+  "record_checks": "pass",
+  "reproduction_status": "pass",
+  "http_compatibility_status": "fail",
+  "production_readiness": "not_established",
+  "deterrence": "not_tested",
+  "runtime_setup_record_source_commit": "1aa2aaa7ae695bed2f89c2e475f6e003e52b97fb",
+  "probe_database_git_blob": "bb057afcde0ba8e2c1349df9164da0f0c2ee9035",
+  "final_experiment": {
+    "cases": 3,
+    "http_requests": 30,
+    "elapsed_seconds": 20.523681,
+    "scope": "one original fixture, one IPv4 loopback port, one detector/database combination"
+  },
+  "restored_archive": {
+    "path": "../../honeypot-signals-v0.1.0/honeypot-signals-v0.1.0.zip",
+    "sha256": "a9a6d80faf6fc4093175ae9432b2ce74e1da031adbd251a6c778c1476fcd02f4",
+    "manifest_files_verified": 18
+  },
+  "harness_sha256": "d3a4499bb8f555066548db0aa25d0459007b99da26ed480c995000087db61313",
+  "checks": {
+    "final_xml_matches_summary": true,
+    "final_scans_completed": true,
+    "nse_execution_errors_absent": true,
+    "48_version_scripts_loaded": true,
+    "fixed_inputs_unchanged": true,
+    "off_on_only_options_changed": true,
+    "disabling_restores_baseline": true,
+    "harness_matches_post_run_receipt": true,
+    "packaged_files_match_original_bytes": true
+  },
+  "evidence_archive": {
+    "path": "results.tar.gz",
+    "sha256": "2458b8ecbc0c872c6304cd0e62ffcb0ad165f5e283b71dbabb81f2f4c5762ebb",
+    "size_bytes": 34562,
+    "records_in_manifest": 41,
+    "includes_initial_failed_harness_attempt": true,
+    "excludes_original_source_copies_and_runtime_binaries": true
+  }
+}

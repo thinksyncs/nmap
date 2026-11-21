@@ -1,3 +1,17 @@
+# Honeypot camouflage development branch
+
+This fork's development goal is to make **legitimate servers imitate honeypot
+behavior while retaining their application functions**. Nmap and the existing
+Lua/NSE detector work provide independent evaluation. A honeypot classification
+is a measurable intermediate result; attacker deterrence remains to be tested.
+
+Start with the [project objective and work order](docs/honeypot-camouflage-roadmap.md),
+the [recovered HTTP camouflage baseline](review/honeypot-signals-v0.1.0/README.md),
+and the [Cloud development instructions](AGENTS.md). The current development
+branch is `codex/cloud-netbus-dev`; its name reflects the earlier detector work.
+
+The upstream Nmap project information and license references follow.
+
 Nmap [![Build Status](https://github.com/nmap/nmap/actions/workflows/build.yml/badge.svg)](https://github.com/nmap/nmap/actions/workflows/build.yml)
 ====
 

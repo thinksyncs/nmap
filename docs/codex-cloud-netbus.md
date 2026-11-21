@@ -1,5 +1,20 @@
 # NetBus / NetBuster development in Codex Cloud
 
+## Role in the project
+
+The project builds **honeypot camouflage for legitimate servers**. The current
+work priorities are in [the camouflage roadmap](honeypot-camouflage-roadmap.md).
+The NetBus detector and workflow below are retained evaluation assets. A passed
+detector test does not show that a real service has been camouflaged or that an
+attacker will avoid it.
+
+The earlier HTTP camouflage implementation has been recovered in
+[`review/honeypot-signals-v0.1.0/`](../review/honeypot-signals-v0.1.0/README.md).
+Use `python3 tools/codex-cloud/test_camouflage.py` for its independent service
+classification comparison; `scan.py` below specifically evaluates NetBus.
+
+## NetBus workflow
+
 This workflow prepares the repository for repeatable development of
 `scripts/netbus-version.nse` in a Codex Cloud workspace. It builds a local Nmap
 runtime from committed source and runs the working script against the retained
