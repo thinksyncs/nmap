@@ -27,7 +27,31 @@ that this project only develops honeypot detectors.
 - Keep the original recovered ZIP and `review/netbus-multiversion/` immutable.
   Make new implementations and measurements outside these frozen snapshots.
 
-## HTTP camouflage baseline
+## Current Lua HTTP camouflage implementation
+
+The server-side profile and reference adapter are in `camouflage/`. Read
+`camouflage/README.md` for the API, runtime bounds, and application contract.
+Run the focused application and detector comparison after preparing the runtime:
+
+```sh
+python3 tools/codex-cloud/test_http_camouflage.py
+```
+
+The test compares direct, pass-through, active, and restored conditions on the
+same loopback port, for both a generic application and a recognizable BaseHTTP
+frontend. The expected early hard match in the latter is an ineffective
+camouflage result, even when the overall test passes. Inspect the efficacy and
+HTTP compatibility fields separately. A forced SIP wire check must not replace
+the ordinary service-scan outcome.
+
+The profile handles only the first non-HTTP SIP OPTIONS request line. Once a
+connection is passed through, it relays subsequent bytes without modification.
+Keep normal HTTP OPTIONS/CORS, Date, authentication, state updates, session
+revocation, framing, and connection behavior in the application gates. Preserve
+source/runtime hashes and raw failed outcomes when changing a classifier-facing
+response. Do not run unrelated NetBus suites for server-only changes.
+
+## Recovered HTTP camouflage baseline
 
 After preparing the runtime below, reproduce the original fixture with a paired
 off/on/off comparison using the unchanged service-probe database:

@@ -1,6 +1,6 @@
 # Honeypot camouflage: objective and next work
 
-Decision updated: **2026-11-21**.
+Decision updated: **2026-11-22**.
 
 ## Product and evidence
 
@@ -68,13 +68,23 @@ representative accuracy measurement, or a production release. The first
 retained Cloud run is indexed
 in [`review/codex-cloud/camouflage-baseline-20261121/`](../review/codex-cloud/camouflage-baseline-20261121/README.md).
 
-### 2. Implement a narrow Lua camouflage profile and a reference adapter
+### 2. Lua profile and reference adapter
 
-**This is the next implementation priority.** Start from the observed Dionaea
-`SIPOptions` mechanism and preserve valid HTTP traffic instead of replacing
-ordinary OPTIONS handling.
+**The first implementation is available in [`camouflage/`](../camouflage/README.md).**
+It uses the observed Dionaea `SIPOptions` mechanism and forwards valid HTTP
+traffic instead of replacing ordinary OPTIONS handling. Its stateful reference
+application has authentication, writes, session revocation, real CORS policy,
+and streaming. The same-port comparison also includes a real BaseHTTP banner
+to expose the early-hard-match limitation.
 
-The profile should be a small Lua module that returns either `pass` or a bounded
+Run `python3 tools/codex-cloud/test_http_camouflage.py`. Actual outcomes and
+source hashes are retained in the
+[2026-11-22 record](../review/codex-cloud/http-camouflage-20261122/README.md).
+The initial adapter is a local reference implementation, not a published
+production frontend integration. The following requirements remain the gates
+for this implementation and later integrations.
+
+The profile is a small Lua module that returns either `pass` or a bounded
 imitation response for an explicitly recognized non-HTTP SIP OPTIONS request.
 The transport adapter must inspect that request before an HTTP parser rejects
 its SIP request line. A normal application middleware hook cannot be assumed
@@ -118,7 +128,7 @@ Acceptance requires all of the following:
    prevent `SIPOptions` from running. Do not rescue a failed ordinary result by
    forcing the desired probe and reporting that as the same experiment.
 
-### 3. Compare an HTTP-native profile if the first adapter is unsuitable
+### 3. Next comparison: an HTTP-native profile for recognizable frontends
 
 Honeyd HTTP is the leading comparison candidate. The fixed Nmap database has a
 `GetRequest` match for an HTTP/1.0 status line immediately followed by

@@ -1,0 +1,29 @@
+[
+  {
+    "directory": "run-1",
+    "status": "fail",
+    "started_at": "2026-11-21T16:17:11.819730+00:00",
+    "finished_at": "2026-11-21T16:17:12.134037+00:00",
+    "completed_cases": 0,
+    "harness_sha256": "b0e8f28101962e0ef3b692426565670574550d5d9a5c5a516c621179b24ee5ea",
+    "note": "Initial harness incorrectly parsed a plain-text 401 response as JSON and stopped before Nmap; not an efficacy measurement."
+  },
+  {
+    "directory": "run-2",
+    "status": "pass",
+    "started_at": "2026-11-21T16:17:37.511801+00:00",
+    "finished_at": "2026-11-21T16:20:20.938641+00:00",
+    "completed_cases": 8,
+    "harness_sha256": "f58e2869c8a7a478b5c9b9e0951233d652308625729b42a601441735512f341f",
+    "note": "Preliminary complete eight-condition run; generic presentation omitted Date. Exact changed source retained in executed-source. Superseded by final run."
+  },
+  {
+    "directory": "final",
+    "status": "pass",
+    "started_at": "2026-11-21T16:24:38.552671+00:00",
+    "finished_at": "2026-11-21T16:27:20.215732+00:00",
+    "completed_cases": 8,
+    "harness_sha256": "e887855657e435294c06df3f532695917ad766825f82379daf402b9a1df99fed",
+    "note": "Final run after retaining Date in both presentations and requiring relevant probe arrival in generic controls. All final source/runtime hashes agree."
+  }
+]

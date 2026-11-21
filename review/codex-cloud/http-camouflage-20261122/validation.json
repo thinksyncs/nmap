@@ -1,0 +1,538 @@
+{
+  "schema_version": 1,
+  "date_jst": "2026-11-22",
+  "record_checks": "pass",
+  "experiment_status": "pass",
+  "scope": "Lua reference adapter on plaintext IPv4 loopback HTTP; not a production release",
+  "started_at": "2026-11-21T16:24:38.552671+00:00",
+  "finished_at": "2026-11-21T16:27:20.215732+00:00",
+  "elapsed_seconds": 161.663061,
+  "http_compatibility": "pass_within_declared_reference_application_scope",
+  "generic_camouflage": "demonstrated",
+  "recognized_basehttp_camouflage": "not_effective_early_hard_match",
+  "deterrence": "not_tested",
+  "counts": {
+    "ordinary_nmap_scans": 8,
+    "application_check_types": 27,
+    "application_check_records": 432,
+    "application_comparisons": 12,
+    "lua_semantic_cases": 21,
+    "lua_incomplete_line_boundaries": 24
+  },
+  "inputs": {
+    "camouflage/adapter.py": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/camouflage/adapter.py",
+      "sha256": "7d1e32ffabe1bbedd36dab03a698cc7e1b9972b5e28a4b0296bf81326b50ff45"
+    },
+    "camouflage/reference_app.py": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/camouflage/reference_app.py",
+      "sha256": "f8fd5c746ca2ef8ae0616081767996ab3979bd16cd90f82cedffa8f0ac621e3c"
+    },
+    "camouflage/lua/dionaea_sip.lua": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/camouflage/lua/dionaea_sip.lua",
+      "sha256": "dd6196f4cd2e0908dd70bad9c2c72151c54902fe8a7ab019e6f45a1fb02a3fbb"
+    },
+    "camouflage/lua/decide.lua": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/camouflage/lua/decide.lua",
+      "sha256": "56a4fc94ebfa6c80dc138da45a597468ff2e8caebc5dfee6fbab9cbaefb5fc42"
+    },
+    "camouflage/tests/test_profile.lua": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/camouflage/tests/test_profile.lua",
+      "sha256": "3eb663f4b3d0f75020a7489043354d97a95755367bc7f97b06c267a96b81999d"
+    },
+    "tools/codex-cloud/test_http_camouflage.py": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/tools/codex-cloud/test_http_camouflage.py",
+      "sha256": "e887855657e435294c06df3f532695917ad766825f82379daf402b9a1df99fed"
+    },
+    "tools/codex-cloud/test_camouflage.py": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/tools/codex-cloud/test_camouflage.py",
+      "sha256": "d3a4499bb8f555066548db0aa25d0459007b99da26ed480c995000087db61313"
+    },
+    "nmap": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/nmap",
+      "sha256": "5cebac67aafcdc11f662c4fd82285da8c4bb368a31d3b5062f26c8023bfa171b"
+    },
+    "lua": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/lua",
+      "sha256": "ea947a7758cd4a2c5497a557607ca7ad2e3caecfa65c1c55ebc33f3996c03d20"
+    },
+    "probe_database": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap/nmap-service-probes",
+      "sha256": "57cc029b3610a55124e35bf1cb4830010ecf19d678298bafbee2ed8482bb4239"
+    },
+    "script_index": {
+      "path": "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/share/nmap/scripts/script.db",
+      "sha256": "6a7436ab3613d493900e6bc22d64f12a8c4decb829627f288623b8bc0e82d4c2"
+    }
+  },
+  "inputs_unchanged": true,
+  "runtime_setup_record_source_commit": "1aa2aaa7ae695bed2f89c2e475f6e003e52b97fb",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "nmap_version": "Nmap version 7.992SVN ( https://nmap.org )\nPlatform: x86_64-unknown-linux-gnu\nCompiled with: nmap-liblua-5.4.9 nmap-libz-1.3.2 nmap-libpcre2-10.49 nmap-libpcap-(64-bit nmap-libdnet-1.18.2 ipv6\nCompiled without: openssl libssh2\nAvailable nsock engines: epoll poll select\n",
+  "lua_version": "Lua 5.4.9  Copyright (C) 1994-2026 Lua.org, PUC-Rio\n",
+  "profile_tests": {
+    "command": [
+      "/workspace/scratch/a3bee33fc004/nmap-cloud/.codex-cache/runtime/bin/lua",
+      "-E",
+      "/workspace/scratch/a3bee33fc004/nmap-cloud/camouflage/tests/test_profile.lua"
+    ],
+    "exit_code": 0,
+    "stdout": "profile cases: 21 passed; incomplete-line boundary checks: 24 passed\n",
+    "stderr": ""
+  },
+  "cases": [
+    {
+      "name": "generic-a-direct",
+      "presentation": "generic",
+      "mode": "direct",
+      "status": "pass",
+      "service_identity": {
+        "name": "blackice-icecap",
+        "method": "table",
+        "conf": "3"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "off_control",
+      "elapsed_seconds": 41.75,
+      "hard_matches": [],
+      "sent_probe_count": 31,
+      "sent_getrequest": true,
+      "sent_sipoptions": true,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "46b66a7c32d417f22f62bf14b0d28e1909abec039edd40d5c3121763e7f0713b",
+      "application_after_sha256": "f2c5c022cc6ba7ce9318475581de5d694485f24d16a3e8a4d7456d1a3e36fc1d",
+      "adapter_metrics_before_scan": null,
+      "adapter_metrics_after_scan": null,
+      "adapter_metrics_final": null
+    },
+    {
+      "name": "generic-b-passthrough",
+      "presentation": "generic",
+      "mode": "passthrough",
+      "status": "pass",
+      "service_identity": {
+        "name": "blackice-icecap",
+        "method": "table",
+        "conf": "3"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "off_control",
+      "elapsed_seconds": 39.871,
+      "hard_matches": [],
+      "sent_probe_count": 31,
+      "sent_getrequest": true,
+      "sent_sipoptions": true,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "46b66a7c32d417f22f62bf14b0d28e1909abec039edd40d5c3121763e7f0713b",
+      "application_after_sha256": "f2c5c022cc6ba7ce9318475581de5d694485f24d16a3e8a4d7456d1a3e36fc1d",
+      "adapter_metrics_before_scan": {
+        "connections": 13,
+        "active_connections": 0,
+        "passthrough_connections": 13,
+        "bytes_to_backend": 291274,
+        "bytes_to_client": 530015,
+        "prefix_limit_bypasses": 1,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_after_scan": {
+        "connections": 46,
+        "active_connections": 0,
+        "passthrough_connections": 45,
+        "bytes_to_backend": 293025,
+        "bytes_to_client": 532596,
+        "prefix_limit_bypasses": 1,
+        "connection_errors": 1,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_final": {
+        "connections": 60,
+        "active_connections": 1,
+        "passthrough_connections": 59,
+        "bytes_to_backend": 584522,
+        "bytes_to_client": 1062821,
+        "prefix_limit_bypasses": 2,
+        "connection_errors": 1,
+        "policy_errors": 0,
+        "replies": 0
+      }
+    },
+    {
+      "name": "generic-c-active",
+      "presentation": "generic",
+      "mode": "dionaea-sip",
+      "status": "pass",
+      "service_identity": {
+        "name": "honeypot",
+        "product": "Dionaea Honeypot httpd",
+        "method": "probed",
+        "conf": "10"
+      },
+      "honeypot_classification": true,
+      "camouflage_efficacy": "demonstrated_for_this_fixture",
+      "elapsed_seconds": 7.631,
+      "hard_matches": [
+        "Service scan hard match (Probe SIPOptions matched with SIPOptions line 14858): 127.0.0.1:8081 is honeypot.  Version: |Dionaea Honeypot httpd|||"
+      ],
+      "sent_probe_count": 4,
+      "sent_getrequest": true,
+      "sent_sipoptions": true,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "46b66a7c32d417f22f62bf14b0d28e1909abec039edd40d5c3121763e7f0713b",
+      "application_after_sha256": "f2c5c022cc6ba7ce9318475581de5d694485f24d16a3e8a4d7456d1a3e36fc1d",
+      "adapter_metrics_before_scan": {
+        "connections": 13,
+        "active_connections": 0,
+        "passthrough_connections": 13,
+        "bytes_to_backend": 291274,
+        "bytes_to_client": 530015,
+        "prefix_limit_bypasses": 1,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_after_scan": {
+        "connections": 17,
+        "active_connections": 0,
+        "passthrough_connections": 15,
+        "bytes_to_backend": 291345,
+        "bytes_to_client": 530366,
+        "prefix_limit_bypasses": 1,
+        "connection_errors": 1,
+        "replies": 1,
+        "policy_errors": 0
+      },
+      "adapter_metrics_final": {
+        "connections": 31,
+        "active_connections": 0,
+        "passthrough_connections": 28,
+        "bytes_to_backend": 582619,
+        "bytes_to_client": 1060420,
+        "prefix_limit_bypasses": 2,
+        "connection_errors": 1,
+        "replies": 2,
+        "policy_errors": 0
+      }
+    },
+    {
+      "name": "generic-a-restored",
+      "presentation": "generic",
+      "mode": "direct",
+      "status": "pass",
+      "service_identity": {
+        "name": "blackice-icecap",
+        "method": "table",
+        "conf": "3"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "off_control",
+      "elapsed_seconds": 41.752,
+      "hard_matches": [],
+      "sent_probe_count": 31,
+      "sent_getrequest": true,
+      "sent_sipoptions": true,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "46b66a7c32d417f22f62bf14b0d28e1909abec039edd40d5c3121763e7f0713b",
+      "application_after_sha256": "f2c5c022cc6ba7ce9318475581de5d694485f24d16a3e8a4d7456d1a3e36fc1d",
+      "adapter_metrics_before_scan": null,
+      "adapter_metrics_after_scan": null,
+      "adapter_metrics_final": null
+    },
+    {
+      "name": "basehttp-a-direct",
+      "presentation": "basehttp",
+      "mode": "direct",
+      "status": "pass",
+      "service_identity": {
+        "name": "http",
+        "product": "BaseHTTPServer",
+        "version": "0.6",
+        "extrainfo": "Python 3.12.14",
+        "method": "probed",
+        "conf": "10"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "off_control",
+      "elapsed_seconds": 7.531,
+      "hard_matches": [
+        "Service scan hard match (Probe GetRequest matched with GetRequest line 10751): 127.0.0.1:8081 is http.  Version: |BaseHTTPServer|0.6|Python 3.12.14|"
+      ],
+      "sent_probe_count": 2,
+      "sent_getrequest": true,
+      "sent_sipoptions": false,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "349f69a9406672b41e8b56a92b59410c05d526c8100cd25cc43a961dcad3f380",
+      "application_after_sha256": "a9bccec9049bb54bc524242b9c7d2f7187120c48e8497400f64a987f50bfbff2",
+      "adapter_metrics_before_scan": null,
+      "adapter_metrics_after_scan": null,
+      "adapter_metrics_final": null
+    },
+    {
+      "name": "basehttp-b-passthrough",
+      "presentation": "basehttp",
+      "mode": "passthrough",
+      "status": "pass",
+      "service_identity": {
+        "name": "http",
+        "product": "BaseHTTPServer",
+        "version": "0.6",
+        "extrainfo": "Python 3.12.14",
+        "method": "probed",
+        "conf": "10"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "off_control",
+      "elapsed_seconds": 7.715,
+      "hard_matches": [
+        "Service scan hard match (Probe GetRequest matched with GetRequest line 10751): 127.0.0.1:8081 is http.  Version: |BaseHTTPServer|0.6|Python 3.12.14|"
+      ],
+      "sent_probe_count": 2,
+      "sent_getrequest": true,
+      "sent_sipoptions": false,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "349f69a9406672b41e8b56a92b59410c05d526c8100cd25cc43a961dcad3f380",
+      "application_after_sha256": "a9bccec9049bb54bc524242b9c7d2f7187120c48e8497400f64a987f50bfbff2",
+      "adapter_metrics_before_scan": {
+        "connections": 13,
+        "active_connections": 0,
+        "passthrough_connections": 13,
+        "bytes_to_backend": 291274,
+        "bytes_to_client": 531051,
+        "prefix_limit_bypasses": 1,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_after_scan": {
+        "connections": 22,
+        "active_connections": 0,
+        "passthrough_connections": 21,
+        "bytes_to_backend": 292476,
+        "bytes_to_client": 532732,
+        "prefix_limit_bypasses": 1,
+        "connection_errors": 1,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_final": {
+        "connections": 36,
+        "active_connections": 1,
+        "passthrough_connections": 35,
+        "bytes_to_backend": 583973,
+        "bytes_to_client": 1064030,
+        "prefix_limit_bypasses": 2,
+        "connection_errors": 1,
+        "policy_errors": 0,
+        "replies": 0
+      }
+    },
+    {
+      "name": "basehttp-c-active",
+      "presentation": "basehttp",
+      "mode": "dionaea-sip",
+      "status": "pass",
+      "service_identity": {
+        "name": "http",
+        "product": "BaseHTTPServer",
+        "version": "0.6",
+        "extrainfo": "Python 3.12.14",
+        "method": "probed",
+        "conf": "10"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "not_effective_early_hard_match",
+      "elapsed_seconds": 7.699,
+      "hard_matches": [
+        "Service scan hard match (Probe GetRequest matched with GetRequest line 10751): 127.0.0.1:8081 is http.  Version: |BaseHTTPServer|0.6|Python 3.12.14|"
+      ],
+      "sent_probe_count": 2,
+      "sent_getrequest": true,
+      "sent_sipoptions": false,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "349f69a9406672b41e8b56a92b59410c05d526c8100cd25cc43a961dcad3f380",
+      "application_after_sha256": "a9bccec9049bb54bc524242b9c7d2f7187120c48e8497400f64a987f50bfbff2",
+      "adapter_metrics_before_scan": {
+        "connections": 13,
+        "active_connections": 0,
+        "passthrough_connections": 13,
+        "bytes_to_backend": 291274,
+        "bytes_to_client": 531051,
+        "prefix_limit_bypasses": 1,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_after_scan": {
+        "connections": 22,
+        "active_connections": 0,
+        "passthrough_connections": 21,
+        "bytes_to_backend": 292476,
+        "bytes_to_client": 532732,
+        "prefix_limit_bypasses": 1,
+        "connection_errors": 3,
+        "policy_errors": 0,
+        "replies": 0
+      },
+      "adapter_metrics_final": {
+        "connections": 36,
+        "active_connections": 0,
+        "passthrough_connections": 34,
+        "bytes_to_backend": 583750,
+        "bytes_to_client": 1063822,
+        "prefix_limit_bypasses": 2,
+        "connection_errors": 3,
+        "replies": 1,
+        "policy_errors": 0
+      }
+    },
+    {
+      "name": "basehttp-a-restored",
+      "presentation": "basehttp",
+      "mode": "direct",
+      "status": "pass",
+      "service_identity": {
+        "name": "http",
+        "product": "BaseHTTPServer",
+        "version": "0.6",
+        "extrainfo": "Python 3.12.14",
+        "method": "probed",
+        "conf": "10"
+      },
+      "honeypot_classification": false,
+      "camouflage_efficacy": "off_control",
+      "elapsed_seconds": 7.552,
+      "hard_matches": [
+        "Service scan hard match (Probe GetRequest matched with GetRequest line 10751): 127.0.0.1:8081 is http.  Version: |BaseHTTPServer|0.6|Python 3.12.14|"
+      ],
+      "sent_probe_count": 2,
+      "sent_getrequest": true,
+      "sent_sipoptions": false,
+      "nse_execution_errors": [],
+      "application_before_checks": 27,
+      "application_after_checks": 27,
+      "application_before_sha256": "349f69a9406672b41e8b56a92b59410c05d526c8100cd25cc43a961dcad3f380",
+      "application_after_sha256": "a9bccec9049bb54bc524242b9c7d2f7187120c48e8497400f64a987f50bfbff2",
+      "adapter_metrics_before_scan": null,
+      "adapter_metrics_after_scan": null,
+      "adapter_metrics_final": null
+    }
+  ],
+  "application_comparisons": [
+    {
+      "presentation": "generic",
+      "reference": "generic-a-direct",
+      "case": "generic-b-passthrough",
+      "phase": "application_before",
+      "equal": true
+    },
+    {
+      "presentation": "generic",
+      "reference": "generic-a-direct",
+      "case": "generic-b-passthrough",
+      "phase": "application_after",
+      "equal": true
+    },
+    {
+      "presentation": "generic",
+      "reference": "generic-a-direct",
+      "case": "generic-c-active",
+      "phase": "application_before",
+      "equal": true
+    },
+    {
+      "presentation": "generic",
+      "reference": "generic-a-direct",
+      "case": "generic-c-active",
+      "phase": "application_after",
+      "equal": true
+    },
+    {
+      "presentation": "generic",
+      "reference": "generic-a-direct",
+      "case": "generic-a-restored",
+      "phase": "application_before",
+      "equal": true
+    },
+    {
+      "presentation": "generic",
+      "reference": "generic-a-direct",
+      "case": "generic-a-restored",
+      "phase": "application_after",
+      "equal": true
+    },
+    {
+      "presentation": "basehttp",
+      "reference": "basehttp-a-direct",
+      "case": "basehttp-b-passthrough",
+      "phase": "application_before",
+      "equal": true
+    },
+    {
+      "presentation": "basehttp",
+      "reference": "basehttp-a-direct",
+      "case": "basehttp-b-passthrough",
+      "phase": "application_after",
+      "equal": true
+    },
+    {
+      "presentation": "basehttp",
+      "reference": "basehttp-a-direct",
+      "case": "basehttp-c-active",
+      "phase": "application_before",
+      "equal": true
+    },
+    {
+      "presentation": "basehttp",
+      "reference": "basehttp-a-direct",
+      "case": "basehttp-c-active",
+      "phase": "application_after",
+      "equal": true
+    },
+    {
+      "presentation": "basehttp",
+      "reference": "basehttp-a-direct",
+      "case": "basehttp-a-restored",
+      "phase": "application_before",
+      "equal": true
+    },
+    {
+      "presentation": "basehttp",
+      "reference": "basehttp-a-direct",
+      "case": "basehttp-a-restored",
+      "phase": "application_after",
+      "equal": true
+    }
+  ],
+  "checks": {
+    "complete_xml_matches_record": true,
+    "source_and_runtime_match_before_after_and_current": true,
+    "date_retained_in_both_presentations": true,
+    "generic_controls_reached_getrequest_and_sipoptions": true,
+    "nse_execution_failures_absent": true,
+    "lua_policy_errors_absent": true,
+    "full_installed_48_version_scripts_loaded": true,
+    "archive_matches_all_original_records": true
+  },
+  "evidence_archive": {
+    "path": "results.tar.gz",
+    "sha256": "dd22e851366a61b13d12347bc9dcd364ae52d70ff83f6bd34d9e2f0c4a3f5743",
+    "size_bytes": 537215,
+    "records_in_manifest": 299,
+    "raw_records_bytes": 29193935,
+    "final_summary": "http-camouflage-20261122/final/summary.json",
+    "includes_preliminary_runs": true,
+    "includes_runtime_binaries": false
+  }
+}
